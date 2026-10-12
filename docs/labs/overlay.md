@@ -1,6 +1,11 @@
+<div class="page-head" markdown>
+<div class="eyebrow">Lab</div>
+
 # Overlay Lab
 
-<p class="lab-subtitle">Intersect and Union - Countries and Time Zones</p>
+<p class="lede">Intersect and Union - Countries and Time Zones</p>
+
+</div>
 
 <p class="lab-back"><a href="../../lessons/#overlay">&larr; Back to Lessons</a></p>
 

@@ -1,6 +1,11 @@
+<div class="page-head" markdown>
+<div class="eyebrow">Lab</div>
+
 # Selection by Attributes Lab
 
-<p class="lab-subtitle">Mapping America's riskiest counties - FEMA National Risk Index</p>
+<p class="lede">Mapping America's riskiest counties - FEMA National Risk Index</p>
+
+</div>
 
 <p class="lab-back"><a href="../../lessons/#select-by-attributes">&larr; Back to Lessons</a></p>
 

@@ -1,6 +1,11 @@
+<div class="page-head" markdown>
+<div class="eyebrow">Lab</div>
+
 # Suitability Modeling Lab
 
-<p class="lab-subtitle">Siting a Community Solar Installation - Staten Island, NYC</p>
+<p class="lede">Siting a Community Solar Installation - Staten Island, NYC</p>
+
+</div>
 
 <p class="lab-back"><a href="../../lessons/#suitability-modeling">&larr; Back to Lessons</a></p>
 

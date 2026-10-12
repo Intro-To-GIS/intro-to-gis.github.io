@@ -1,6 +1,11 @@
+<div class="page-head" markdown>
+<div class="eyebrow">Lab</div>
+
 # Dissolve Lab
 
-<p class="lab-subtitle">Aggregating Census Tract Social Vulnerability Data to the County Level</p>
+<p class="lede">Aggregating Census Tract Social Vulnerability Data to the County Level</p>
+
+</div>
 
 <p class="lab-back"><a href="../../lessons/#dissolve">&larr; Back to Lessons</a></p>
 

@@ -1,17 +1,38 @@
 /* Shared styles for lab widget pages. Reused by every lab page via extra_css in mkdocs.yml. */
-.lab-subtitle{color:#5c6268; margin:-8px 0 20px; font-size:15.5px;}
+.lab-subtitle{color:var(--md-default-fg-color--light); margin:-8px 0 20px; font-size:15.5px;}
 .lab-back{max-width:820px; margin:0 auto 18px; font-size:14.5px;}
-.lab-widget{
+/* The widget deliberately shadows the site's variable names so it stays
+   self-contained. It previously shadowed them with ONE hardcoded light
+   set, which is why every lab page rendered a cream card on a black page
+   in dark mode. Same names, now defined per scheme. */
+[data-md-color-scheme="default"] .lab-widget,
+[data-md-color-scheme="default"] .lab-toc{
   --paper:#f5f3ee;
   --panel:#ffffff;
+  --page:#fcfbf9;
   --ink:#16181b;
-  --ink-soft:#5c6268;
+  --ink-soft:#6c7378;
   --line:#e5e2db;
-  --green:#1f6b45;
-  --green-dim:#e8f0ea;
-  --amber:#6d2a6d;
-  --amber-dim:#f2eaf2;
+  --line-strong:#cfcbc2;
+  --accent:#1b3a5c;
+  --code-wash:#efece6;
   --red:#8a2a2a;
+}
+[data-md-color-scheme="slate"] .lab-widget,
+[data-md-color-scheme="slate"] .lab-toc{
+  --paper:#1f2226;
+  --panel:#1b1e22;
+  --page:#15171a;
+  --ink:#e9e6e0;
+  --ink-soft:#8b867e;
+  --line:#2b2f35;
+  --line-strong:#3c424a;
+  --accent:#9dc0e3;
+  --code-wash:#23272c;
+  --red:#e08a8a;
+}
+
+.lab-widget{
   --mono: ui-monospace, "SF Mono", "IBM Plex Mono", Consolas, "Courier New", monospace;
   --sans: -apple-system, "Segoe UI", "IBM Plex Sans", Roboto, Helvetica, Arial, sans-serif;
   background:var(--paper); color:var(--ink); font-family:var(--sans);
@@ -28,7 +49,7 @@
 }
 .lab-widget .contents-head{
   font-family:var(--mono); font-size:11.5px; letter-spacing:.06em; text-transform:uppercase;
-  color:var(--ink-soft); padding:12px 18px; border-bottom:1px solid var(--line); background:#faf9f6;
+  color:var(--ink-soft); padding:12px 18px; border-bottom:1px solid var(--line); background:var(--paper);
 }
 .lab-widget .layer{
   display:flex; align-items:flex-start; gap:14px; width:100%; text-align:left;
@@ -36,27 +57,32 @@
   cursor:pointer; font-family:inherit; color:inherit;
 }
 .lab-widget .layer:last-child{border-bottom:0;}
-.lab-widget .layer:hover{background:#faf9f6;}
-.lab-widget .layer:focus-visible{outline:2px solid var(--green); outline-offset:-2px;}
+.lab-widget .layer:hover{background:var(--paper);}
+.lab-widget .layer:focus-visible{outline:2px solid var(--accent); outline-offset:-2px;}
+/* Status reads as a hairline square, not a coloured capsule: the site
+   spends colour on the module and reading codes, nowhere else. */
 .lab-widget .swatch{
-  flex:0 0 auto; width:20px; height:20px; margin-top:2px; border-radius:4px;
-  display:flex; align-items:center; justify-content:center; font-size:13px;
+  flex:0 0 auto; width:17px; height:17px; margin-top:3px; border-radius:0;
+  display:flex; align-items:center; justify-content:center; font-size:10.5px;
+  background:none; filter:grayscale(1); opacity:.85;
 }
-.lab-widget .swatch.open{ background:var(--green-dim); color:var(--green); border:1px solid var(--green);}
-.lab-widget .swatch.locked{ background:var(--amber-dim); color:var(--amber); border:1px solid var(--amber);}
+.lab-widget .swatch.open{ color:var(--ink); border:1px solid var(--ink-soft);}
+.lab-widget .swatch.locked{ color:var(--ink-soft); border:1px solid var(--line-strong);}
 .lab-widget .layer-body{flex:1 1 auto; min-width:0;}
-.lab-widget .layer-title{font-weight:600; font-size:15.5px; display:flex; align-items:center; gap:8px;}
+.lab-widget .layer-title{font-weight:600; font-size:15px; display:flex; align-items:baseline; gap:9px; color:var(--ink);}
 .lab-widget .layer-desc{color:var(--ink-soft); font-size:13.5px; margin-top:2px;}
+/* Same mono uppercase tag the rest of the site uses for eyebrows and
+   column heads, rather than a pill from a different system. */
 .lab-widget .layer-tag{
-  font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; text-transform:uppercase;
-  padding:2px 7px; border-radius:20px; font-weight:600;
+  font-family:var(--mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase;
+  padding:0; border-radius:0; font-weight:500; background:none; color:var(--ink-soft);
 }
-.lab-widget .tag-open{ background:var(--green-dim); color:var(--green); }
-.lab-widget .tag-locked{ background:var(--amber-dim); color:var(--amber); }
+.lab-widget .tag-open,
+.lab-widget .tag-locked{ background:none; color:var(--ink-soft); }
 .lab-widget .chev{margin-left:auto; align-self:center; color:var(--ink-soft); font-size:13px; transition:transform .15s ease;}
 .lab-widget .layer[aria-expanded="true"] .chev{transform:rotate(90deg);}
 .lab-widget .panel{
-  display:none; padding:6px 24px 26px 52px; background:#FBFCFC; border-bottom:1px solid var(--line);
+  display:none; padding:6px 24px 26px 52px; background:var(--page); border-bottom:1px solid var(--line);
 }
 .lab-widget .panel.show{display:block;}
 .lab-widget .panel h2{font-size:16.5px; margin:18px 0 8px;}
@@ -66,13 +92,13 @@
 .lab-widget .panel ol, .lab-widget .panel ul{margin:0 0 14px; padding-left:22px; font-size:14.5px;}
 .lab-widget .panel li{margin-bottom:8px;}
 .lab-widget .panel code{
-  font-family:var(--mono); background:#EEF1F0; padding:1px 5px; border-radius:4px; font-size:13px;
+  font-family:var(--mono); background:var(--code-wash); padding:1px 5px; border-radius:4px; font-size:13px;
 }
 .lab-widget .callout{
-  background:var(--amber-dim); border-left:3px solid var(--amber); padding:10px 14px;
-  border-radius:0 6px 6px 0; font-size:13.5px; color:#5C3B1D; margin:12px 0 16px;
+  background:var(--paper); border-left:2px solid var(--line-strong); padding:10px 14px;
+  border-radius:0; font-size:13.5px; color:var(--ink); margin:12px 0 16px;
 }
-.lab-widget .callout b{color:var(--amber);}
+.lab-widget .callout b{color:var(--ink);}
 .lab-widget .ref-figure{margin:18px 0 22px;}
 .lab-widget .ref-figure img{width:100%; border:1px solid var(--line); border-radius:8px; display:block;}
 .lab-widget .ref-caption{font-size:13px; color:var(--ink-soft); margin-top:6px; font-family:var(--mono);}
@@ -83,14 +109,16 @@
 .lab-widget .gate-form{padding-top:8px;}
 .lab-widget .gate-row{display:flex; gap:10px; align-items:center; flex-wrap:wrap;}
 .lab-widget .gate-input{
-  font-family:var(--mono); font-size:14px; padding:8px 10px; border:1px solid var(--line);
-  border-radius:6px; min-width:200px;
+  font-family:var(--mono); font-size:14px; padding:8px 10px; border:1px solid var(--line-strong);
+  border-radius:2px; min-width:200px; background:var(--panel); color:var(--ink);
 }
+.lab-widget .gate-input:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
 .lab-widget .gate-btn{
-  font-family:var(--sans); font-size:13.5px; font-weight:600; padding:8px 16px; border-radius:6px;
-  border:1px solid var(--amber); background:var(--amber); color:#fff; cursor:pointer;
+  font-family:var(--sans); font-size:13.5px; font-weight:500; padding:8px 16px; border-radius:2px;
+  border:1px solid var(--ink); background:var(--ink); color:var(--panel); cursor:pointer;
 }
-.lab-widget .gate-btn:hover{opacity:.9;}
+.lab-widget .gate-btn:hover{opacity:.85;}
+.lab-widget .gate-btn:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
 .lab-widget .gate-error{color:var(--red); font-size:13px; margin-top:8px; display:none;}
 .lab-widget .gate-content{display:none;}
 .lab-widget footer{
@@ -111,9 +139,10 @@
   .lab-widget .panel{padding-left:18px;}
 }
 .lab-toc{
-  max-width:820px; margin:0 auto 18px; font-size:14px; color:#4B5B67;
-  background:#FBFCFC; border:1px solid #DCE3E0; border-radius:8px; padding:10px 16px;
+  max-width:820px; margin:0 auto 18px; font-size:14px; color:var(--ink-soft);
+  background:var(--panel); border:1px solid var(--line); border-radius:2px; padding:10px 16px;
 }
-.lab-toc a{color:#1F8A5C; text-decoration:none; margin:0 2px;}
-.lab-toc a:hover{text-decoration:underline;}
+.lab-toc a{color:var(--accent); text-decoration:none; margin:0 2px;
+  border-bottom:1px solid color-mix(in srgb, currentColor 32%, transparent);}
+.lab-toc a:hover{border-bottom-color:currentColor;}
 

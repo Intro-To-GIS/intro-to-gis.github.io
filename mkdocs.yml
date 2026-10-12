@@ -11,8 +11,8 @@ theme:
   name: material
   custom_dir: overrides
   language: en
-  logo: assets/images/logo-placeholder.svg
-  favicon: assets/images/logo-placeholder.svg
+  logo: assets/images/mark.svg
+  favicon: assets/images/mark.svg
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default

@@ -1,6 +1,11 @@
+<div class="page-head" markdown>
+<div class="eyebrow">Reference</div>
+
 # Resources
 
-The core course readings, and where to find data for labs and your own projects.
+<p class="lede">The core course readings, and where to find data for labs and your own projects.</p>
+
+</div>
 
 ## Reading Materials
 

@@ -1,6 +1,11 @@
+<div class="page-head" markdown>
+<div class="eyebrow">Lab</div>
+
 # ArcPy Lab
 
-<p class="lab-subtitle">Introduction to Geospatial Programming with Eurostat NUTS Regions</p>
+<p class="lede">Introduction to Geospatial Programming with Eurostat NUTS Regions</p>
+
+</div>
 
 <p class="lab-back"><a href="../../lessons/#intro-to-geospatial-programming">&larr; Back to Lessons</a></p>
 

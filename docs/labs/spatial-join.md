@@ -1,6 +1,11 @@
+<div class="page-head" markdown>
+<div class="eyebrow">Lab</div>
+
 # Spatial Join Lab
 
-<p class="lab-subtitle">Counting Schools per District - Oregon</p>
+<p class="lede">Counting Schools per District - Oregon</p>
+
+</div>
 
 <p class="lab-back"><a href="../../lessons/#spatial-join">&larr; Back to Lessons</a></p>
 

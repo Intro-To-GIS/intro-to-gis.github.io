@@ -1,6 +1,11 @@
+<div class="page-head" markdown>
+<div class="eyebrow">Lab</div>
+
 # Selection by Location Lab
 
-<p class="lab-subtitle">Mapping robbery risk near parks and police stations - Chicago, IL</p>
+<p class="lede">Mapping robbery risk near parks and police stations - Chicago, IL</p>
+
+</div>
 
 <p class="lab-back"><a href="../../lessons/#select-by-location">&larr; Back to Lessons</a></p>
 

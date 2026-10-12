@@ -1,6 +1,11 @@
+<div class="page-head" markdown>
+<div class="eyebrow">Lab</div>
+
 # Buffer Lab
 
-<p class="lab-subtitle">Walkable School Access - Denver, Colorado</p>
+<p class="lede">Walkable School Access - Denver, Colorado</p>
+
+</div>
 
 <p class="lab-back"><a href="../../lessons/#buffer">&larr; Back to Lessons</a></p>
 

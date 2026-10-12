@@ -1,6 +1,11 @@
+<div class="page-head" markdown>
+<div class="eyebrow">Lab</div>
+
 # Clip Lab
 
-<p class="lab-subtitle">Extracting African Provinces from Global Boundary Data</p>
+<p class="lede">Extracting African Provinces from Global Boundary Data</p>
+
+</div>
 
 <p class="lab-back"><a href="../../lessons/#clip">&larr; Back to Lessons</a></p>
 

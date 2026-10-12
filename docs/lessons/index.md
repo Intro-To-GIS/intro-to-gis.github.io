@@ -1,6 +1,11 @@
+<div class="page-head" markdown>
+<div class="eyebrow">Course material</div>
+
 # Lessons
 
-Lessons are guided tutorials. Each one combines a GIS concept, an ArcGIS Pro workflow, and a practice task.
+<p class="lede">Lessons are guided tutorials. Each one combines a GIS concept, an ArcGIS Pro workflow, and a practice task.</p>
+
+</div>
 
 ## Full course topic list
 

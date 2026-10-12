@@ -1,6 +1,11 @@
+<div class="page-head" markdown>
+<div class="eyebrow">Lab</div>
+
 # Attribute Table and Field Lab
 
-<p class="lab-subtitle">Mapping ADA Accessibility - NYC Subway Stations</p>
+<p class="lede">Mapping ADA Accessibility - NYC Subway Stations</p>
+
+</div>
 
 <p class="lab-back"><a href="../../lessons/#attribute-table-and-field">&larr; Back to Lessons</a></p>
 

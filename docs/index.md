@@ -10,6 +10,8 @@ title: Home
 
 A free, open introduction to Geographic Information Systems, taught through ArcGIS Pro.
 
+<div class="hero-motif"></div>
+
 </div>
 
 <!-- THIS WEEK: edit the two lines below each week during term. Between terms, replace with the next start date. -->

@@ -1,6 +1,11 @@
+<div class="page-head" markdown>
+<div class="eyebrow">Lab</div>
+
 # Map Algebra Lab
 
-<p class="lab-subtitle">Building a Wildfire Risk Index - Zion National Park, UT</p>
+<p class="lede">Building a Wildfire Risk Index - Zion National Park, UT</p>
+
+</div>
 
 <p class="lab-back"><a href="../../lessons/#map-algebra">&larr; Back to Lessons</a></p>
 

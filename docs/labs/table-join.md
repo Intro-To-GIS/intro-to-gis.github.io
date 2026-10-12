@@ -1,6 +1,11 @@
+<div class="page-head" markdown>
+<div class="eyebrow">Lab</div>
+
 # Table Join Lab
 
-<p class="lab-subtitle">Mapping Rural Health Access - Nebraska Counties</p>
+<p class="lede">Mapping Rural Health Access - Nebraska Counties</p>
+
+</div>
 
 <p class="lab-back"><a href="../../lessons/#table-join">&larr; Back to Lessons</a></p>
 

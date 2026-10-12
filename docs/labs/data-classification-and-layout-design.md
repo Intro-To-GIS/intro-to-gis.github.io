@@ -1,6 +1,11 @@
+<div class="page-head" markdown>
+<div class="eyebrow">Lab</div>
+
 # Cartographic Principles; Map Classification; Map Elements, Layout, and Design Lab
 
-<p class="lab-subtitle">Mapping Unemployment in New York City Neighborhoods</p>
+<p class="lede">Mapping Unemployment in New York City Neighborhoods</p>
+
+</div>
 
 <p class="lab-back"><a href="../../lessons/#data-classification-and-layout-design">&larr; Back to Lessons</a></p>
 

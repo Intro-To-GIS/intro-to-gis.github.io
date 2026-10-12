@@ -1,6 +1,11 @@
+<div class="page-head" markdown>
+<div class="eyebrow">Lab</div>
+
 # Surface Analysis Lab
 
-<p class="lab-subtitle">Assessing Zion Canyon for a New Trail Route - Zion National Park, UT</p>
+<p class="lede">Assessing Zion Canyon for a New Trail Route - Zion National Park, UT</p>
+
+</div>
 
 <p class="lab-back"><a href="../../lessons/#surface-analysis">&larr; Back to Lessons</a></p>
 
