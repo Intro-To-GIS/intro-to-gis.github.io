@@ -1,64 +1,81 @@
 ---
 title: Home
+hide:
+  - toc
 ---
 
-<div class="hero" markdown>
+<div class="home-portal">
 
-<div class="eyebrow">CUNY GIS Course Site</div>
+<section class="atlas-hero atlas-hero--home" aria-labelledby="home-title">
+  <div class="atlas-hero__copy">
+    <p class="atlas-kicker">Intro to GIS</p>
+    <h1 id="home-title">Make sense of place.</h1>
+    <p class="atlas-deck">A free, open learning atlas for understanding geographic information, working in ArcGIS Pro, and asking better questions with spatial data.</p>
+    <div class="atlas-actions">
+      <a class="atlas-button atlas-button--primary" href="lessons/">Explore lessons</a>
+      <a class="atlas-button" href="lessons/course-index/">View the course index</a>
+    </div>
+  </div>
+  <div class="atlas-hero__map atlas-hero__map--home" aria-hidden="true">
+    <svg viewBox="0 0 620 500" role="presentation">
+      <defs>
+        <pattern id="home-grid" width="38" height="38" patternUnits="userSpaceOnUse">
+          <path d="M38 0H0V38" fill="none" stroke="currentColor" stroke-width="1" />
+        </pattern>
+      </defs>
+      <rect class="atlas-grid" width="620" height="500" fill="url(#home-grid)" />
+      <path class="home-land" d="M94 84l112-34 88 37 54-20 112 56 69 101-41 109-116 94-134-19-112-84-52-128z" />
+      <path class="home-river" d="M183 52c43 70 18 113 57 163 36 47 90 51 102 111 8 40-4 74-27 107" />
+      <g class="home-points">
+        <circle cx="172" cy="172" r="8" />
+        <circle cx="277" cy="126" r="8" />
+        <circle cx="381" cy="190" r="8" />
+        <circle cx="455" cy="286" r="8" />
+        <circle cx="311" cy="348" r="8" />
+        <circle cx="204" cy="298" r="8" />
+      </g>
+    </svg>
+  </div>
+</section>
 
-# ArcGIS Pro Course
+<section class="home-route" aria-labelledby="home-route-title">
+  <div>
+    <p class="atlas-kicker">Begin anywhere</p>
+    <h2 id="home-route-title">An evergreen guide—not a semester timetable.</h2>
+  </div>
+  <p>Move through concepts in order or follow your curiosity. Each lesson brings together explanation, slides, practice, and carefully chosen readings.</p>
+</section>
 
-A free, open introduction to Geographic Information Systems, taught through ArcGIS Pro.
-
-<div class="hero-motif"></div>
-
+<div class="portal-grid">
+  <a class="portal-card" href="lessons/">
+    <span>01</span>
+    <h2>Browse Lessons</h2>
+    <p>Explore nine connected collections spanning GIS foundations, cartography, analysis, and automation.</p>
+    <strong>Enter the learning atlas →</strong>
+  </a>
+  <a class="portal-card" href="lessons/course-index/">
+    <span>02</span>
+    <h2>Use the Course Index</h2>
+    <p>Find every topic, slide deck, lab, and reading in one compact reference table.</p>
+    <strong>Open the complete matrix →</strong>
+  </a>
+  <a class="portal-card" href="resources/">
+    <span>03</span>
+    <h2>Find Resources</h2>
+    <p>Return to datasets, reading materials, and practical references when you need them.</p>
+    <strong>Browse resources →</strong>
+  </a>
 </div>
 
-<!-- THIS WEEK: edit the two lines below each week during term. Between terms, replace with the next start date. -->
-!!! info "Before term starts"
-
-    **Principles of GISc** at Lehman College begins **September 2, 2026**: course overview and software installation.
-    [See the full schedule](courses/lehman-gisc-fall2026.md)
-<!-- /THIS WEEK -->
-
-## Find your course
-
-<div class="card-grid" markdown>
-
-<div class="course-card" markdown>
-<span class="tag">Lehman College</span>
-
-### [Principles of GISc](courses/lehman-gisc-fall2026.md)
-Fall 2026. Classes begin September 2, 2026. Schedule, topics, slides, and readings week by week.
-</div>
-
-<div class="course-card" markdown>
-<span class="tag">Hunter College</span>
-
-### [Intro to GIS](courses/hunter-intro-gis-spring2027.md)
-Spring 2027. Classes begin February 1, 2027. Schedule, topics, slides, and readings week by week.
-</div>
-
-<div class="course-card" markdown>
-<span class="tag">Everyone else</span>
-
-### [Start with the lessons](lessons/index.md)
-Not enrolled in either section? The full course is open to anyone who wants to work through it.
-</div>
+<section class="home-capabilities" aria-labelledby="capabilities-title">
+  <p class="atlas-kicker">What you will learn</p>
+  <h2 id="capabilities-title">From opening a project to designing a spatial model.</h2>
+  <div class="capability-list">
+    <p><span>01</span> Organize projects, data, coordinate systems, and layers with confidence.</p>
+    <p><span>02</span> Query tables and connect information through keys, proximity, and overlap.</p>
+    <p><span>03</span> Design maps that make analytical choices visible and understandable.</p>
+    <p><span>04</span> Transform vector and raster data into reproducible spatial evidence.</p>
+  </div>
+</section>
 
 </div>
-
-## What you will be able to do
-
-By the end of the course you will be able to:
-
-- Set up an ArcGIS Pro project and organize your data in geodatabases, shapefiles, and feature classes
-- Choose a coordinate system and projection, and recognize when a mismatch is distorting your map
-- Import and clean tabular data, then join it to geographic boundaries
-- Select features by attribute and by location to answer a spatial question
-- Classify and symbolize data, then build a finished map layout and export it
-- Run the core geoprocessing tools: buffer, clip, dissolve, overlay, and spatial join
-- Analyze raster surfaces with slope, aspect, and map algebra, and combine them into a suitability model
-- Write a first ArcPy script to automate a task you would otherwise repeat by hand
-
-Everything here is free and open access, created and maintained by Shokran Rahiminezhad. [More about this site](about.md)

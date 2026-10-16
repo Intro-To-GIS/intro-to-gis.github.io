@@ -1,47 +1,209 @@
-<div class="page-head" markdown>
-<div class="eyebrow">Course material</div>
+---
+title: Lessons
+hide:
+  - toc
+---
 
-# Lessons
+<div class="learning-atlas">
 
-<p class="lede">Lessons are guided tutorials. Each one combines a GIS concept, an ArcGIS Pro workflow, and a practice task.</p>
+<section class="atlas-hero" aria-labelledby="atlas-title">
+  <div class="atlas-hero__copy">
+    <p class="atlas-kicker">An open learning atlas</p>
+    <h1 id="atlas-title">Learn to think spatially.</h1>
+    <p class="atlas-deck">Explore GIS as a way of seeing, a practical craft, and a set of analytical tools. Start anywhere; every lesson connects concepts, slides, practice, and readings.</p>
+    <div class="atlas-actions">
+      <a class="atlas-button atlas-button--primary" href="#learning-landscape">Explore the lessons</a>
+      <a class="atlas-button" href="course-index/">Open the course index</a>
+    </div>
+  </div>
+  <div class="atlas-hero__map" aria-hidden="true">
+    <svg viewBox="0 0 620 500" role="presentation">
+      <defs>
+        <pattern id="atlas-grid" width="32" height="32" patternUnits="userSpaceOnUse">
+          <path d="M 32 0 L 0 0 0 32" fill="none" stroke="currentColor" stroke-width="1" />
+        </pattern>
+      </defs>
+      <rect class="atlas-grid" width="620" height="500" fill="url(#atlas-grid)" />
+      <path class="atlas-contour atlas-contour--one" d="M45 316C87 211 184 158 274 196c83 35 108 123 194 116 49-4 78-35 111-76" />
+      <path class="atlas-contour atlas-contour--two" d="M42 360c55-91 131-122 206-95 91 33 119 128 213 124 57-2 93-34 126-80" />
+      <path class="atlas-contour atlas-contour--three" d="M72 403c62-62 124-76 184-50 83 37 119 105 204 104 58 0 98-20 132-50" />
+      <g class="atlas-route">
+        <path d="M92 373C154 317 173 222 259 226c94 5 108 121 205 102 42-8 68-35 91-76" />
+        <circle cx="92" cy="373" r="9" />
+        <circle cx="259" cy="226" r="9" />
+        <circle cx="464" cy="328" r="9" />
+        <circle cx="555" cy="252" r="9" />
+      </g>
+      <g class="atlas-north">
+        <path d="M535 70l15 42-15-9-15 9z" />
+        <text x="535" y="56" text-anchor="middle">N</text>
+      </g>
+    </svg>
+  </div>
+</section>
+
+<section class="atlas-intro" aria-labelledby="choose-route">
+  <div>
+    <p class="atlas-kicker">Choose your route</p>
+    <h2 id="choose-route">Three acts. Nine connected collections.</h2>
+  </div>
+  <p>The collections are conceptual rather than semester-based. They give the site a coherent visual language without forcing you into a fixed calendar.</p>
+</section>
+
+<div class="atlas-toolbar">
+  <label for="lesson-filter">Find a topic or skill</label>
+  <div class="atlas-search">
+    <span aria-hidden="true">⌕</span>
+    <input id="lesson-filter" type="search" placeholder="Try spatial join, projections, raster…" autocomplete="off" data-lesson-filter>
+  </div>
+  <p class="atlas-results" aria-live="polite" data-lesson-results>Showing all nine collections.</p>
+</div>
+
+<div id="learning-landscape" class="learning-landscape">
+
+<section class="learning-act learning-act--orient" aria-labelledby="act-orient">
+  <header class="learning-act__header">
+    <span>Act I</span>
+    <h2 id="act-orient">Orient</h2>
+    <p>Understand what GIS is, how its workspace is organized, and what spatial data actually represents.</p>
+  </header>
+  <div class="collection-grid">
+    <article class="collection-card collection-card--thinking" data-collection data-keywords="history applications maps ethics power gis geographic information science">
+      <div class="collection-signal" aria-hidden="true"><i></i><i></i><i></i></div>
+      <p class="collection-number">01</p>
+      <h3>GIS as a Way of Seeing</h3>
+      <p>Discover how location changes a question—and how maps shape the answers we accept.</p>
+      <ul class="lesson-link-list">
+        <li><a href="00-introduction-to-gis/">Introduction to GIS</a></li>
+      </ul>
+      <p class="collection-topics">History · applications · map power · ethics</p>
+    </article>
+
+    <article class="collection-card collection-card--workspace" data-collection data-keywords="software installation interface arcgis pro project map geodatabase layers files troubleshooting">
+      <div class="collection-signal" aria-hidden="true"><i></i><i></i><i></i></div>
+      <p class="collection-number">02</p>
+      <h3>The ArcGIS Pro Workspace</h3>
+      <p>Build a clean project and understand the interface, files, layers, and containers around your work.</p>
+      <ul class="lesson-link-list">
+        <li><a href="01-getting-started/">Getting Started</a></li>
+        <li><a href="02-data-layers-coordinate-systems/">Projects, Maps, and Layers</a></li>
+      </ul>
+      <p class="collection-topics">Interface · projects · geodatabases · file management</p>
+    </article>
+
+    <article class="collection-card collection-card--data" data-collection data-keywords="vector raster data types sources acquisition coordinate systems projections add data">
+      <div class="collection-signal" aria-hidden="true"><i></i><i></i><i></i></div>
+      <p class="collection-number">03</p>
+      <h3>Spatial Data &amp; Reference Systems</h3>
+      <p>Learn what your layers are, where they come from, and how coordinates place them correctly.</p>
+      <ul class="lesson-link-list">
+        <li><a href="02-data-layers-coordinate-systems/">Data, Layers, and Coordinates</a></li>
+        <li><a href="02b-data-management/">Data Acquisition and Management</a></li>
+      </ul>
+      <p class="collection-topics">Vector · raster · data sources · projections</p>
+    </article>
+  </div>
+</section>
+
+<section class="learning-act learning-act--work" aria-labelledby="act-work">
+  <header class="learning-act__header">
+    <span>Act II</span>
+    <h2 id="act-work">Interrogate &amp; Communicate</h2>
+    <p>Ask precise questions, connect records through space, and design maps that communicate clearly.</p>
+  </header>
+  <div class="collection-grid">
+    <article class="collection-card collection-card--tables" data-collection data-keywords="attribute table fields csv calculate field query select attributes tabular data">
+      <div class="collection-signal" aria-hidden="true"><i></i><i></i><i></i></div>
+      <p class="collection-number">04</p>
+      <h3>Tables &amp; Attribute Intelligence</h3>
+      <p>Turn rows and fields into questions, selections, and defensible new information.</p>
+      <ul class="lesson-link-list">
+        <li><a href="03-selection-by-attribute/">Selection by Attribute</a></li>
+        <li><a href="03c-tabular-data-management/">Tabular Data Management</a></li>
+      </ul>
+      <p class="collection-topics">Attributes · CSV · calculations · queries</p>
+    </article>
+
+    <article class="collection-card collection-card--cartography" data-collection data-keywords="cartography symbology classification map design layout export legend labels communication">
+      <div class="collection-signal" aria-hidden="true"><i></i><i></i><i></i></div>
+      <p class="collection-number">05</p>
+      <h3>Cartographic Design</h3>
+      <p>Shape hierarchy, classification, color, and layout into maps people can understand.</p>
+      <ul class="lesson-link-list">
+        <li><a href="04-symbology-map-design/">Symbology and Map Design</a></li>
+      </ul>
+      <p class="collection-topics">Symbology · classification · layout · export</p>
+    </article>
+
+    <article class="collection-card collection-card--relationships" data-collection data-keywords="table join spatial join select by location relationship proximity intersect closest">
+      <div class="collection-signal" aria-hidden="true"><i></i><i></i><i></i></div>
+      <p class="collection-number">06</p>
+      <h3>Spatial Relationships &amp; Joins</h3>
+      <p>Connect records by a shared key—or connect features because of where they are.</p>
+      <ul class="lesson-link-list">
+        <li><a href="03d-table-joins/">Table Joins</a></li>
+        <li><a href="03b-selection-by-location/">Selection by Location</a></li>
+        <li><a href="07-spatial-joins/">Spatial Joins <span>Featured</span></a></li>
+      </ul>
+      <p class="collection-topics">Keys · proximity · intersection · transferred attributes</p>
+    </article>
+  </div>
+</section>
+
+<section class="learning-act learning-act--analyze" aria-labelledby="act-analyze">
+  <header class="learning-act__header">
+    <span>Act III</span>
+    <h2 id="act-analyze">Analyze &amp; Extend</h2>
+    <p>Transform features, model continuous space, and move toward repeatable, programmable workflows.</p>
+  </header>
+  <div class="collection-grid">
+    <article class="collection-card collection-card--vector" data-collection data-keywords="vector geoprocessing buffer clip dissolve overlay union intersect analysis">
+      <div class="collection-signal" aria-hidden="true"><i></i><i></i><i></i></div>
+      <p class="collection-number">07</p>
+      <h3>Vector Geoprocessing</h3>
+      <p>Transform boundaries and features to answer questions about reach, overlap, and extent.</p>
+      <ul class="lesson-link-list">
+        <li><a href="05-geoprocessing/">Geoprocessing</a></li>
+      </ul>
+      <p class="collection-topics">Buffer · clip · dissolve · overlay</p>
+    </article>
+
+    <article class="collection-card collection-card--raster" data-collection data-keywords="raster surface slope aspect hillshade map algebra suitability modeling weighted overlay">
+      <div class="collection-signal" aria-hidden="true"><i></i><i></i><i></i></div>
+      <p class="collection-number">08</p>
+      <h3>Raster &amp; Suitability Modeling</h3>
+      <p>Read continuous surfaces, combine criteria, and make the assumptions in a model visible.</p>
+      <ul class="lesson-link-list">
+        <li><a href="06-raster-analysis/">Raster Analysis</a></li>
+      </ul>
+      <p class="collection-topics">Surface analysis · map algebra · suitability</p>
+    </article>
+
+    <article class="collection-card collection-card--future" data-collection data-keywords="python arcpy programming automation future gis geospatial code workflow">
+      <div class="collection-signal" aria-hidden="true"><i></i><i></i><i></i></div>
+      <p class="collection-number">09</p>
+      <h3>Automation &amp; GIS Futures</h3>
+      <p>Scale a repeated workflow with code and consider where geospatial practice is moving next.</p>
+      <ul class="lesson-link-list">
+        <li><a href="08-geospatial-programming/">Geospatial Programming</a></li>
+        <li><a href="09-future-of-gisc/">The Future of GISc</a></li>
+      </ul>
+      <p class="collection-topics">ArcPy · automation · emerging practice</p>
+    </article>
+  </div>
+</section>
 
 </div>
 
-## Full course topic list
+<p class="atlas-empty" data-lesson-empty hidden>No collection matches that search. Try a broader term or use the complete index.</p>
 
-A date-free, college-agnostic view of every topic in the course. This list isn't tied to any single semester's calendar, so each section (regardless of institution) can pace the material however it needs. A topic title opens its lesson or concept page; the Slides column opens the matching deck.
-
-<div class="topics-table" markdown="1">
-
-| Modules | Topics | Slides | Labs | Readings |
-|---|---|---|---|---|
-| <span class="module-badge module-intro">Introduction, Foundations, and Data Management</span> | [Course Overview and Intro](00-introduction-to-gis.md); [Software Installation](00-introduction-to-gis.md) | <a class="deck" href="../slides/introduction-to-gis/" title="Slides: Course Overview and Intro"><img src="../assets/slide-thumbs/introduction-to-gis.png" alt="Slides: Course Overview and Intro" loading="lazy"></a>  | — | [Esri: Introduction to ArcGIS Pro](https://doc.esri.com/en/arcgis-pro/latest/get-started/get-started.html){: .src-esri}; [Esri Tutorial Path: Try ArcGIS Pro](https://learn.arcgis.com/en/paths/try-arcgis-pro/){: .src-esri}; [Flexible GIS Workbook: Setup Before You Begin](https://mlpp.pressbooks.pub/flexiblegisworkbookpro/front-matter/setup-before-you-begin/){: .src-workbook} |
-| <span class="module-badge module-intro">Introduction, Foundations, and Data Management</span> | [History of GIS and ArcGIS Ecosystem](00-introduction-to-gis.md) | <a class="deck" href="../slides/introduction-to-gis/" title="Slides: introduction to gis"><img src="../assets/slide-thumbs/introduction-to-gis.png" alt="Slides: introduction to gis" loading="lazy"></a> | — | [GIS & Cartography: 1.1 Introduction](https://slcc.pressbooks.pub/maps/chapter/1-1/){: .src-cartography}; [Essentials of GIS: Ch. 1 Introduction](https://saylordotorg.github.io/text_essentials-of-geographic-information-systems/s05-introduction.html){: .src-essentials} |
-| <span class="module-badge module-intro">Introduction, Foundations, and Data Management</span> | [GIS/GISc Applications](00-introduction-to-gis.md); [Why GIS/GISc Matter](00-introduction-to-gis.md) | <a class="deck" href="../slides/introduction-to-gis/" title="Slides: GIS/GISc Applications"><img src="../assets/slide-thumbs/introduction-to-gis.png" alt="Slides: GIS/GISc Applications" loading="lazy"></a>  | — | [GIS & Cartography: 1.3 Geospatial Technology](https://slcc.pressbooks.pub/maps/chapter/1-3/){: .src-cartography}; [GIS & Cartography: 1.2 Geographic Science](https://slcc.pressbooks.pub/maps/chapter/1-2/){: .src-cartography} |
-| <span class="module-badge module-intro">Introduction, Foundations, and Data Management</span> | [The Politics and Ethics of Mapping](00-introduction-to-gis.md) | <a class="deck" href="../slides/politics-ethics-of-mapping/" title="Slides: politics ethics of mapping"><img src="../assets/slide-thumbs/politics-ethics-of-mapping.png" alt="Slides: politics ethics of mapping" loading="lazy"></a> | — | — |
-| <span class="module-badge module-intro">Introduction, Foundations, and Data Management</span> | [The Power of Maps & Map Types](00-introduction-to-gis.md) | <a class="deck" href="../slides/power-of-maps-map-types/" title="Slides: power of maps map types"><img src="../assets/slide-thumbs/power-of-maps-map-types.png" alt="Slides: power of maps map types" loading="lazy"></a> | — | [GIS & Cartography: 1.5 Map Fundamentals](https://slcc.pressbooks.pub/maps/chapter/1-5/){: .src-cartography}; [Essentials of GIS: Ch. 2 Map Anatomy](https://saylordotorg.github.io/text_essentials-of-geographic-information-systems/s06-map-anatomy.html){: .src-essentials} |
-| <span class="module-badge module-intro">Introduction, Foundations, and Data Management</span> | [ArcGIS User Interface](01-getting-started.md) | <a class="deck" href="../slides/arcgis-pro-ui-tour/" title="Slides: arcgis pro ui tour"><img src="../assets/slide-thumbs/arcgis-pro-ui-tour.png" alt="Slides: arcgis pro ui tour" loading="lazy"></a> | — | [Esri: Introduction to ArcGIS Pro](https://doc.esri.com/en/arcgis-pro/latest/get-started/get-started.html){: .src-esri} |
-| <span class="module-badge module-intro">Introduction, Foundations, and Data Management</span> | [Data Types](../concepts/vector-raster.md)<br>[File Types in the ArcGIS Ecosystem; File Management, and Troubleshooting](02b-data-management.md) | <a class="deck" href="../slides/vector-vs-raster-data/" title="Slides: Data Types"><img src="../assets/slide-thumbs/vector-vs-raster-data.png" alt="Slides: Data Types" loading="lazy"></a> <a class="deck" href="../slides/file-types-management-troubleshooting/" title="Slides: File Types in the ArcGIS Ecosystem; File Management, and Troubleshooting"><img src="../assets/slide-thumbs/file-types-management-troubleshooting.png" alt="Slides: File Types in the ArcGIS Ecosystem; File Management, and Troubleshooting" loading="lazy"></a> | — | [GIS & Cartography: 4.2 Raster Data Models](https://slcc.pressbooks.pub/maps/chapter/4-2/){: .src-cartography}; [GIS & Cartography: 4.3 Vector Data Models](https://slcc.pressbooks.pub/maps/chapter/4-3/){: .src-cartography}; [GIS & Cartography: 5.4 File Formats](https://slcc.pressbooks.pub/maps/chapter/5-4/){: .src-cartography}; [Esri: Data in ArcGIS Pro](https://doc.esri.com/en/arcgis-pro/latest/help/data/main/data-in-arcgis-pro.html){: .src-esri} |
-| <span class="module-badge module-intro">Introduction, Foundations, and Data Management</span> | [Data Resources Exploration](02b-data-management.md); [Data Acquisition](02b-data-management.md); [Adding Data](02b-data-management.md) | <a class="deck" href="../slides/data-management/" title="Slides: Data Resources Exploration"><img src="../assets/slide-thumbs/data-management.png" alt="Slides: Data Resources Exploration" loading="lazy"></a>   | — | [Flexible GIS Workbook: Appendix A GIS Data Repositories](https://mlpp.pressbooks.pub/flexiblegisworkbookpro/back-matter/appendix/){: .src-workbook}; [GIS & Cartography: 5.2 Geographic Data Acquisition](https://slcc.pressbooks.pub/maps/chapter/5-2/){: .src-cartography}; [Essentials of GIS: Ch. 3 Data, Information, and Where to Find Them](https://saylordotorg.github.io/text_essentials-of-geographic-information-systems/s07-data-information-and-where-to-.html){: .src-essentials}; [Flexible GIS Workbook: 1.3 Add Data to the Map](https://mlpp.pressbooks.pub/flexiblegisworkbookpro/chapter/1-3-add-data-to-the-map/){: .src-workbook} |
-| <span class="module-badge module-intro">Introduction, Foundations, and Data Management</span> | [Project, Map, Geodatabase, Feature Class, Shapefile, and Layer Creation](02-data-layers-coordinate-systems.md) | <a class="deck" href="../slides/project-map-geodatabase-feature-class-shapefile-layer/" title="Slides: project map geodatabase feature class shapefile layer"><img src="../assets/slide-thumbs/project-map-geodatabase-feature-class-shapefile-layer.png" alt="Slides: project map geodatabase feature class shapefile layer" loading="lazy"></a> | — | [Flexible GIS Workbook: 1.1 Start a New Project](https://mlpp.pressbooks.pub/flexiblegisworkbookpro/chapter/chapter-1/){: .src-workbook}; [GIS & Cartography: 5.3 Geodatabases](https://slcc.pressbooks.pub/maps/chapter/5-3/){: .src-cartography} |
-| <span class="module-badge module-intro">Introduction, Foundations, and Data Management</span> | [Coordinate and Projection Systems](../concepts/coordinate-systems.md) | <a class="deck" href="../slides/projection/" title="Slides: projection"><img src="../assets/slide-thumbs/projection.png" alt="Slides: projection" loading="lazy"></a> | — | [GIS & Cartography: 2.3 Datums, Coordinate Systems, and Map Projections](https://slcc.pressbooks.pub/maps/chapter/2-3/){: .src-cartography}; [Flexible GIS Workbook: 1.4 Change the Map Projection](https://mlpp.pressbooks.pub/flexiblegisworkbookpro/chapter/1-4-change-the-map-projection/){: .src-workbook} |
-| <span id="attribute-table-and-field" class="module-badge module-tabular">Tabular Data and Mapping</span> | [Attribute Table and Field](../concepts/attribute-tables.md) | <a class="deck" href="../slides/tabular-data-management/" title="Slides: tabular data management"><img src="../assets/slide-thumbs/tabular-data-management.png" alt="Slides: tabular data management" loading="lazy"></a> | [Attribute Table and Field](../labs/attribute-table-and-field/) | [GIS & Cartography: 3.2 Data and Information](https://slcc.pressbooks.pub/maps/chapter/3-2/){: .src-cartography} |
-| <span class="module-badge module-tabular">Tabular Data and Mapping</span> | [CSV Table Management, and Import](03c-tabular-data-management.md) | <a class="deck" href="../slides/tabular-data-management/" title="Slides: tabular data management"><img src="../assets/slide-thumbs/tabular-data-management.png" alt="Slides: tabular data management" loading="lazy"></a> | [CSV Table Management, and Import](../labs/attribute-table-and-field/) | [Flexible GIS Workbook: 2.2 Create Point Features from a Table](https://mlpp.pressbooks.pub/flexiblegisworkbookpro/chapter/2-2-create-point-features-from-a-table/){: .src-workbook} |
-| <span class="module-badge module-tabular">Tabular Data and Mapping</span> | [Field Creation, Editing, and Calculation](03c-tabular-data-management.md) | <a class="deck" href="../slides/tabular-data-management/" title="Slides: tabular data management"><img src="../assets/slide-thumbs/tabular-data-management.png" alt="Slides: tabular data management" loading="lazy"></a> | [Field Creation, Editing, and Calculation](../labs/attribute-table-and-field/) | [Flexible GIS Workbook: Ch. 3 Work With Data](https://mlpp.pressbooks.pub/flexiblegisworkbookpro/part/work-with-data/){: .src-workbook}; [GIS & Cartography: 6.2 Descriptions and Summaries](https://slcc.pressbooks.pub/maps/chapter/6-2/){: .src-cartography} |
-| <span id="data-classification-and-layout-design" class="module-badge module-tabular">Tabular Data and Mapping</span> | [Cartographic Principles: Map Elements, Design, Layout and Export](04-symbology-map-design.md) | <a class="deck" href="../slides/cartographic-principles/" title="Slides: cartographic principles"><img src="../assets/slide-thumbs/cartographic-principles.png" alt="Slides: cartographic principles" loading="lazy"></a> | [Cartographic Principles: Map Elements, Design, Layout and Export](../labs/data-classification-and-layout-design/) | [Essentials of GIS: Ch. 9 Cartographic Principles](https://saylordotorg.github.io/text_essentials-of-geographic-information-systems/s13-cartographic-principles.html){: .src-essentials}; [GIS & Cartography: 9.4 Cartographic Design](https://slcc.pressbooks.pub/maps/chapter/9-4/){: .src-cartography}; [Flexible GIS Workbook: 1.7 Create a Layout](https://mlpp.pressbooks.pub/flexiblegisworkbookpro/chapter/1-7-create-a-layout/){: .src-workbook}; [Flexible GIS Workbook: 1.8 Add Map Elements](https://mlpp.pressbooks.pub/flexiblegisworkbookpro/chapter/1-8-add-map-elements/){: .src-workbook}; [Esri Tutorial Path: Mapping and Visualization in ArcGIS Pro](https://learn.arcgis.com/en/paths/mapping-and-visualization-in-arcgis-pro/){: .src-esri} |
-| <span class="module-badge module-tabular">Tabular Data and Mapping</span> | [Map Classification](04-symbology-map-design.md) | <a class="deck" href="../slides/symbology-map-classification/" title="Slides: symbology map classification"><img src="../assets/slide-thumbs/symbology-map-classification.png" alt="Slides: symbology map classification" loading="lazy"></a> | [Map Classification](../labs/data-classification-and-layout-design/) | [GIS & Cartography: 6.4 Data Classification](https://slcc.pressbooks.pub/maps/chapter/6-4/){: .src-cartography} |
-| <span id="select-by-attributes" class="module-badge module-tabular">Tabular Data and Mapping</span> | [Select by Attributes](03-selection-by-attribute.md) | <a class="deck" href="../slides/select-by-attributes/" title="Slides: select by attributes"><img src="../assets/slide-thumbs/select-by-attributes.png" alt="Slides: select by attributes" loading="lazy"></a> | [Select by Attributes](../labs/select-by-attributes/) | [GIS & Cartography: 6.3 Searches and Queries](https://slcc.pressbooks.pub/maps/chapter/6-3/){: .src-cartography} |
-| <span id="select-by-location" class="module-badge module-tabular">Tabular Data and Mapping</span> | [Select by Location](03b-selection-by-location.md) | <a class="deck" href="../slides/select-by-location/" title="Slides: select by location"><img src="../assets/slide-thumbs/select-by-location.png" alt="Slides: select by location" loading="lazy"></a> | [Select by Location](../labs/select-by-location/) | [GIS & Cartography: 6.3 Searches and Queries](https://slcc.pressbooks.pub/maps/chapter/6-3/){: .src-cartography} |
-| <span id="table-join" class="module-badge module-tabular">Tabular Data and Mapping</span> | [Table Join](03d-table-joins.md) | <a class="deck" href="../slides/table-join/" title="Slides: table join"><img src="../assets/slide-thumbs/table-join.png" alt="Slides: table join" loading="lazy"></a> | [Table Join](../labs/table-join/) | [GIS & Cartography: 5.3 Geodatabases](https://slcc.pressbooks.pub/maps/chapter/5-3/){: .src-cartography} |
-| <span id="spatial-join" class="module-badge module-tabular">Tabular Data and Mapping</span> | [Spatial Join](07-spatial-joins.md) | <a class="deck" href="../slides/spatial-join/" title="Slides: spatial join"><img src="../assets/slide-thumbs/spatial-join.png" alt="Slides: spatial join" loading="lazy"></a> | [Spatial Join](../labs/spatial-join/) | [GIS & Cartography: 7.4 Multiple Layer Analysis](https://slcc.pressbooks.pub/maps/chapter/7-4/){: .src-cartography}; [Esri: Spatial Analysis in ArcGIS Pro](https://doc.esri.com/en/arcgis-pro/latest/help/analysis/introduction/spatial-analysis-in-arcgis-pro.html){: .src-esri} |
-| <span id="buffer" class="module-badge module-spatial">Spatial Analysis</span> | [Buffer](05-geoprocessing.md) | <a class="deck" href="../slides/geoprocessing-tools/" title="Slides: geoprocessing tools"><img src="../assets/slide-thumbs/geoprocessing-tools.png" alt="Slides: geoprocessing tools" loading="lazy"></a> | [Buffer](../labs/buffer/) | [GIS & Cartography: 7.3 Single Layer Analysis](https://slcc.pressbooks.pub/maps/chapter/7-3/){: .src-cartography} |
-| <span class="module-badge module-spatial" id="clip">Spatial Analysis</span> | [Clip](05-geoprocessing.md) | <a class="deck" href="../slides/geoprocessing-tools/" title="Slides: geoprocessing tools"><img src="../assets/slide-thumbs/geoprocessing-tools.png" alt="Slides: geoprocessing tools" loading="lazy"></a> | [Clip](../labs/clip/) | [Flexible GIS Workbook: Ch. 4 Perform Spatial Analysis](https://mlpp.pressbooks.pub/flexiblegisworkbookpro/part/ch4-perform-spatial-analysis/){: .src-workbook} |
-| <span class="module-badge module-spatial" id="dissolve">Spatial Analysis</span> | [Dissolve](05-geoprocessing.md) | <a class="deck" href="../slides/geoprocessing-tools/" title="Slides: geoprocessing tools"><img src="../assets/slide-thumbs/geoprocessing-tools.png" alt="Slides: geoprocessing tools" loading="lazy"></a> | [Dissolve](../labs/dissolve/) | [Essentials of GIS: Ch. 7 Geospatial Analysis I: Vector Operations](https://saylordotorg.github.io/text_essentials-of-geographic-information-systems/s11-geospatial-analysis-i-vector-o.html){: .src-essentials} |
-| <span class="module-badge module-spatial" id="overlay">Spatial Analysis</span> | [Overlay (Union/Intersect)](05-geoprocessing.md) | <a class="deck" href="../slides/geoprocessing-tools/" title="Slides: geoprocessing tools"><img src="../assets/slide-thumbs/geoprocessing-tools.png" alt="Slides: geoprocessing tools" loading="lazy"></a> | [Overlay](../labs/overlay/) | [GIS & Cartography: 7.4 Multiple Layer Analysis](https://slcc.pressbooks.pub/maps/chapter/7-4/){: .src-cartography} |
-| <span id="surface-analysis" class="module-badge module-spatial">Spatial Analysis</span> | [Raster Analysis: Surface Analysis](06-raster-analysis.md) | <a class="deck" href="../slides/raster-data-analysis/" title="Slides: raster data analysis"><img src="../assets/slide-thumbs/raster-data-analysis.png" alt="Slides: raster data analysis" loading="lazy"></a> | [Surface Analysis](../labs/surface-analysis/) | [GIS & Cartography: 8.6 Terrain Mapping for Spatial Analysis](https://slcc.pressbooks.pub/maps/chapter/8-6/){: .src-cartography}; [Esri Tutorial Path: Raster Data and Imagery in ArcGIS Pro](https://learn.arcgis.com/en/paths/using-raster-data-and-imagery-in-arcgis-pro/){: .src-esri} |
-| <span id="map-algebra" class="module-badge module-spatial">Spatial Analysis</span> | [Map Algebra](06-raster-analysis.md) | <a class="deck" href="../slides/raster-data-analysis/" title="Slides: raster data analysis"><img src="../assets/slide-thumbs/raster-data-analysis.png" alt="Slides: raster data analysis" loading="lazy"></a> | [Map Algebra](../labs/map-algebra/) | [GIS & Cartography: 8.3 Geoprocessing with Raster Imagery](https://slcc.pressbooks.pub/maps/chapter/8-3/){: .src-cartography}; [Essentials of GIS: Ch. 8 Geospatial Analysis II: Raster Data](https://saylordotorg.github.io/text_essentials-of-geographic-information-systems/s12-geospatial-analysis-ii-raster-.html){: .src-essentials} |
-| <span id="suitability-modeling" class="module-badge module-spatial">Spatial Analysis</span> | [Suitability Modeling](06-raster-analysis.md) | <a class="deck" href="../slides/raster-data-analysis/" title="Slides: raster data analysis"><img src="../assets/slide-thumbs/raster-data-analysis.png" alt="Slides: raster data analysis" loading="lazy"></a> | [Suitability Modeling](../labs/suitability-modeling/) | [GIS & Cartography: 8.3 Geoprocessing with Raster Imagery](https://slcc.pressbooks.pub/maps/chapter/8-3/){: .src-cartography}; [GIS & Cartography: 8.4 Scale of Raster Analysis](https://slcc.pressbooks.pub/maps/chapter/8-4/){: .src-cartography}; [Esri: Spatial Analysis in ArcGIS Pro](https://doc.esri.com/en/arcgis-pro/latest/help/analysis/introduction/spatial-analysis-in-arcgis-pro.html){: .src-esri} |
-| <span class="module-badge module-spatial" id="intro-to-geospatial-programming">Spatial Analysis</span> | [Intro to Geospatial Programming](08-geospatial-programming.md) | <a class="deck" href="../slides/geospatial-programming-intro/" title="Slides: geospatial programming intro"><img src="../assets/slide-thumbs/geospatial-programming-intro.png" alt="Slides: geospatial programming intro" loading="lazy"></a> | [Intro to Geospatial Programming](../labs/intro-to-geospatial-programming/) | [Esri: ArcGIS Pro Python Reference](https://doc.esri.com/en/arcgis-pro/latest/arcpy/main/arcgis-pro-arcpy-reference.html){: .src-esri}; [Esri Tutorial Path: Analysis in ArcGIS Pro](https://learn.arcgis.com/en/paths/analysis-in-arcgis-pro/){: .src-esri} |
-| <span class="module-badge module-ethics">Future of GISc</span> | [Future of GISc](09-future-of-gisc.md) | <a class="deck" href="../slides/future-of-gis/" title="Slides: future of gis"><img src="../assets/slide-thumbs/future-of-gis.png" alt="Slides: future of gis" loading="lazy"></a> | — | [GIS & Cartography: 1.7 Future of Mapping Technology](https://slcc.pressbooks.pub/maps/chapter/1-7/){: .src-cartography}; [Esri: What's New in ArcGIS Pro](https://doc.esri.com/en/arcgis-pro/latest/get-started/whats-new-in-arcgis-pro.html){: .src-esri} |
+<section class="index-callout">
+  <div>
+    <p class="atlas-kicker">Reference view</p>
+    <h2>Want the entire course at a glance?</h2>
+    <p>The original matrix remains available with every topic, slide deck, lab, and reading in one place.</p>
+  </div>
+  <a class="atlas-button atlas-button--primary" href="course-index/">Open Course Index</a>
+</section>
 
 </div>

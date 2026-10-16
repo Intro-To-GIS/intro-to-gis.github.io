@@ -1178,6 +1178,511 @@ body:has(.topics-table) .md-sidebar--primary {
   letter-spacing: 0.14em;
 }
 
+/* ============================================================
+   LEARNING ATLAS
+
+   The evergreen layer of the site. Collection colors identify a
+   family of ideas; typography, spacing, and interaction stay shared.
+   ============================================================ */
+
+:root {
+  --collection-thinking:       #d08b3e;
+  --collection-workspace:      #3d8196;
+  --collection-data:           #527b59;
+  --collection-tables:         #8464a1;
+  --collection-cartography:    #c35f5c;
+  --collection-relationships:  #7555a6;
+  --collection-vector:         #b45c39;
+  --collection-raster:         #2f8175;
+  --collection-future:         #355fa2;
+  --night:                     #17191d;
+  --night-muted:               #b8bbc1;
+  --night-line:                rgba(255, 255, 255, 0.16);
+  --hero-paper:                #f6f1e7;
+}
+
+[data-md-color-scheme="slate"] {
+  --collection-thinking:       #e3a65e;
+  --collection-workspace:      #67a8bc;
+  --collection-data:           #7ca383;
+  --collection-tables:         #a78cc0;
+  --collection-cartography:    #dd8580;
+  --collection-relationships:  #a68bd0;
+  --collection-vector:         #d07c59;
+  --collection-raster:         #65aa9d;
+  --collection-future:         #7395cf;
+  --night:                     #0c0e11;
+  --hero-paper:                #f2eee5;
+}
+
+body:has(.learning-atlas) .md-sidebar,
+body:has(.home-portal) .md-sidebar {
+  display: none;
+}
+
+body:has(.lesson-hero) .md-sidebar--primary {
+  display: none;
+}
+
+.md-content:has(.learning-atlas),
+.md-content:has(.home-portal),
+.md-content:has(.lesson-hero) {
+  min-width: 0;
+  max-width: none;
+}
+
+.md-typeset .learning-atlas,
+.md-typeset .home-portal {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 0.8rem 4rem;
+}
+
+body:has(.lesson-hero) {
+  --lesson-accent: var(--collection-relationships);
+}
+
+body:has(.lesson-hero) .md-content__inner {
+  max-width: 58rem;
+  margin: 0 auto;
+  padding-bottom: 4rem;
+}
+
+.md-typeset .learning-atlas > h1,
+.md-typeset .home-portal > h1,
+body:has(.lesson-hero) .md-typeset > h1 {
+  display: none;
+}
+
+/* ---------- Shared atlas language ---------- */
+
+.md-typeset .atlas-kicker,
+.md-typeset .lesson-collection {
+  margin: 0 0 0.75rem;
+  color: inherit;
+  font-family: var(--md-code-font-family);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.17em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.md-typeset .atlas-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.6rem;
+  padding: 0.65rem 1.05rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  color: inherit;
+  font-size: 0.67rem;
+  font-weight: 650;
+  letter-spacing: 0.025em;
+  line-height: 1;
+  transition: transform 180ms ease, background 180ms ease, color 180ms ease;
+}
+
+.md-typeset .atlas-button:hover {
+  border-bottom-color: currentColor;
+  transform: translateY(-2px);
+}
+
+.md-typeset .atlas-button--primary {
+  border-color: var(--hero-paper);
+  background: var(--hero-paper);
+  color: var(--night);
+}
+
+.md-typeset .atlas-button--primary:hover {
+  background: transparent;
+  color: var(--hero-paper);
+}
+
+/* ---------- Large entry panels ---------- */
+
+.md-typeset .atlas-hero {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(18rem, 0.95fr);
+  min-height: 29rem;
+  margin: 0 0 4rem;
+  overflow: hidden;
+  border-radius: 1.25rem;
+  background: var(--night);
+  color: var(--hero-paper);
+}
+
+.md-typeset .atlas-hero__copy {
+  position: relative;
+  z-index: 2;
+  align-self: end;
+  padding: clamp(2rem, 5vw, 4.5rem);
+}
+
+.md-typeset .atlas-hero h1 {
+  max-width: 10ch;
+  margin: 0;
+  color: var(--hero-paper);
+  font-size: clamp(3rem, 7vw, 6.2rem);
+  font-weight: 300;
+  letter-spacing: -0.045em;
+  line-height: 0.87;
+}
+
+.md-typeset .atlas-deck {
+  max-width: 35rem;
+  margin: 1.35rem 0 0;
+  color: var(--night-muted);
+  font-size: 0.86rem;
+  line-height: 1.65;
+}
+
+.md-typeset .atlas-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.8rem;
+}
+
+.md-typeset .atlas-actions .atlas-button {
+  color: var(--hero-paper);
+}
+
+.md-typeset .atlas-actions .atlas-button--primary {
+  color: var(--night);
+}
+
+.md-typeset .atlas-actions .atlas-button--primary:hover {
+  color: var(--hero-paper);
+}
+
+.md-typeset .atlas-hero__map {
+  position: relative;
+  min-height: 26rem;
+  color: var(--hero-paper);
+}
+
+.md-typeset .atlas-hero__map svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.atlas-grid {
+  opacity: 0.48;
+}
+
+.atlas-contour {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  opacity: 0.25;
+}
+
+.atlas-route path {
+  fill: none;
+  stroke: var(--collection-cartography);
+  stroke-width: 3;
+  stroke-dasharray: 7 10;
+  stroke-linecap: round;
+  animation: atlas-route 14s linear infinite;
+}
+
+.atlas-route circle {
+  fill: var(--night);
+  stroke: var(--collection-cartography);
+  stroke-width: 4;
+}
+
+.atlas-north path,
+.atlas-north text {
+  fill: currentColor;
+  font-family: var(--md-code-font-family);
+  font-size: 16px;
+}
+
+@keyframes atlas-route {
+  to { stroke-dashoffset: -136; }
+}
+
+.home-land {
+  fill: color-mix(in srgb, var(--collection-data) 28%, transparent);
+  stroke: var(--collection-data);
+  stroke-width: 2;
+}
+
+.home-river {
+  fill: none;
+  stroke: var(--collection-workspace);
+  stroke-width: 7;
+  stroke-linecap: round;
+  opacity: 0.92;
+}
+
+.home-points circle {
+  fill: var(--collection-thinking);
+  stroke: var(--night);
+  stroke-width: 5;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: map-pulse 3.8s ease-in-out infinite;
+}
+
+.home-points circle:nth-child(2n) { animation-delay: -1.4s; }
+.home-points circle:nth-child(3n) { animation-delay: -2.6s; }
+
+@keyframes map-pulse {
+  50% { transform: scale(1.4); }
+}
+
+/* ---------- Home portal ---------- */
+
+.md-typeset .home-route,
+.md-typeset .atlas-intro {
+  display: grid;
+  grid-template-columns: minmax(15rem, 0.8fr) minmax(16rem, 1.2fr);
+  gap: clamp(2rem, 7vw, 7rem);
+  align-items: end;
+  margin: 0 0 3rem;
+  padding-bottom: 2.25rem;
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.md-typeset .home-route h2,
+.md-typeset .atlas-intro h2 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: clamp(1.8rem, 4vw, 3.1rem);
+  line-height: 1.04;
+}
+
+.md-typeset .home-route > p,
+.md-typeset .atlas-intro > p {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: 0.82rem;
+}
+
+.md-typeset .portal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  margin: 0 0 5rem;
+  border: 1px solid var(--line);
+  background: var(--line);
+}
+
+.md-typeset .portal-card {
+  display: flex;
+  min-height: 17rem;
+  flex-direction: column;
+  padding: 1.5rem;
+  border: 0;
+  background: var(--surface);
+  color: var(--ink);
+  transition: background 180ms ease, transform 180ms ease;
+}
+
+.md-typeset .portal-card:hover {
+  z-index: 1;
+  border: 0;
+  background: var(--wash);
+  transform: translateY(-4px);
+}
+
+.md-typeset .portal-card > span,
+.md-typeset .capability-list span {
+  color: var(--ink-3);
+  font-family: var(--md-code-font-family);
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+}
+
+.md-typeset .portal-card h2 {
+  margin: 2rem 0 0.8rem;
+  padding: 0;
+  border: 0;
+  font-size: 1.55rem;
+}
+
+.md-typeset .portal-card p {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: 0.72rem;
+}
+
+.md-typeset .portal-card strong {
+  margin-top: auto;
+  padding-top: 1.5rem;
+  font-size: 0.66rem;
+}
+
+.md-typeset .home-capabilities {
+  max-width: 55rem;
+  margin: 0 auto;
+}
+
+.md-typeset .home-capabilities > h2 {
+  max-width: 17ch;
+  margin: 0 0 2.2rem;
+  padding: 0;
+  border: 0;
+  font-size: clamp(2rem, 4vw, 3.7rem);
+  line-height: 1.02;
+}
+
+.md-typeset .capability-list p {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: 0.8rem;
+  margin: 0;
+  padding: 1rem 0;
+  border-top: 1px solid var(--line);
+  color: var(--ink-2);
+}
+
+/* ---------- Collection atlas ---------- */
+
+.md-typeset .atlas-toolbar {
+  position: relative;
+  display: grid;
+  grid-template-columns: 11rem minmax(16rem, 1fr) auto;
+  gap: 1rem;
+  align-items: center;
+  margin: 0 0 4rem;
+  padding: 1rem 1.2rem;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.md-typeset .atlas-toolbar label {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+}
+
+.md-typeset .atlas-search {
+  display: grid;
+  grid-template-columns: 1.6rem 1fr;
+  align-items: center;
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.md-typeset .atlas-search span {
+  color: var(--ink-3);
+  font-size: 1.2rem;
+}
+
+.md-typeset .atlas-search input {
+  width: 100%;
+  padding: 0.5rem 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+}
+
+.md-typeset .atlas-search:focus-within {
+  border-bottom-color: var(--ink);
+  box-shadow: 0 1px 0 var(--ink);
+}
+
+.md-typeset .atlas-results {
+  margin: 0;
+  color: var(--ink-3);
+  font-size: 0.62rem;
+  white-space: nowrap;
+}
+
+.md-typeset .learning-act {
+  margin: 0 0 5.5rem;
+}
+
+.md-typeset .learning-act[hidden],
+.md-typeset .collection-card[hidden] {
+  display: none;
+}
+
+.md-typeset .learning-act__header {
+  display: grid;
+  grid-template-columns: 5rem minmax(12rem, 0.75fr) minmax(16rem, 1.25fr);
+  gap: 1.25rem;
+  align-items: baseline;
+  margin: 0 0 1.25rem;
+}
+
+.md-typeset .learning-act__header > span {
+  color: var(--ink-3);
+  font-family: var(--md-code-font-family);
+  font-size: 0.58rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.md-typeset .learning-act__header h2 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 2.2rem;
+}
+
+.md-typeset .learning-act__header p {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: 0.7rem;
+}
+
+.md-typeset .collection-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.md-typeset .collection-card {
+  --collection: var(--ink);
+  position: relative;
+  display: flex;
+  min-height: 24rem;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--collection);
+  background: var(--surface);
+  transition: transform 220ms cubic-bezier(.2,.8,.2,1), box-shadow 220ms ease, background 220ms ease;
+}
+
+.md-typeset .collection-card:hover {
+  z-index: 2;
+  background: color-mix(in srgb, var(--collection) 6%, var(--surface));
+  box-shadow: 0 1.1rem 2.8rem rgba(18, 21, 24, 0.12);
+  transform: translateY(-6px);
+}
+
+.md-typeset .collection-card--thinking      { --collection: var(--collection-thinking); }
+.md-typeset .collection-card--workspace     { --collection: var(--collection-workspace); }
+.md-typeset .collection-card--data          { --collection: var(--collection-data); }
+.md-typeset .collection-card--tables        { --collection: var(--collection-tables); }
+.md-typeset .collection-card--cartography   { --collection: var(--collection-cartography); }
+.md-typeset .collection-card--relationships { --collection: var(--collection-relationships); }
+.md-typeset .collection-card--vector        { --collection: var(--collection-vector); }
+.md-typeset .collection-card--raster        { --collection: var(--collection-raster); }
+.md-typeset .collection-card--future        { --collection: var(--collection-future); }
+
+.md-typeset .collection-number {
+  margin: 1.45rem 0 0;
+  color: var(--collection);
+  font-family: var(--md-code-font-family);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+}
+
 /* Five reading colours sitting side by side inside one cell read as
    noise rather than as a code. In the dense tables they keep their
    identity but come back toward the page ink; the Resources page keeps
@@ -1243,3 +1748,635 @@ body:has(.topics-table) .md-sidebar--primary {
 .md-typeset > p.lab-back,
 .md-typeset > p.lab-subtitle { max-width: 820px; }
 .md-typeset:has(.lab-widget) .page-head { margin-bottom: 1.8rem; }
+.md-typeset .collection-card h3 {
+  max-width: 12ch;
+  margin: 0.5rem 0 0.7rem;
+  color: var(--ink);
+  font-size: 1.55rem;
+  line-height: 1.03;
+}
+
+.md-typeset .collection-card > p:not(.collection-number):not(.collection-topics) {
+  min-height: 4.6rem;
+  margin: 0;
+  color: var(--ink-2);
+  font-size: 0.68rem;
+}
+
+.md-typeset .collection-signal {
+  position: relative;
+  width: 4.5rem;
+  height: 2.5rem;
+}
+
+.md-typeset .collection-signal::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  border-top: 1px solid color-mix(in srgb, var(--collection) 55%, transparent);
+  transform: rotate(-9deg);
+}
+
+.md-typeset .collection-signal i {
+  position: absolute;
+  width: 0.58rem;
+  height: 0.58rem;
+  border: 2px solid var(--collection);
+  border-radius: 50%;
+  background: var(--surface);
+  transition: transform 260ms ease;
+}
+
+.md-typeset .collection-signal i:nth-child(1) { top: 1.2rem; left: 0; }
+.md-typeset .collection-signal i:nth-child(2) { top: 0.5rem; left: 1.9rem; }
+.md-typeset .collection-signal i:nth-child(3) { top: 0.85rem; right: 0; }
+.md-typeset .collection-card:hover .collection-signal i:nth-child(1) { transform: translate(-2px, 4px); }
+.md-typeset .collection-card:hover .collection-signal i:nth-child(2) { transform: translateY(-5px); }
+.md-typeset .collection-card:hover .collection-signal i:nth-child(3) { transform: translate(3px, 2px); }
+
+.md-typeset .lesson-link-list {
+  margin: auto 0 0;
+  padding: 1.2rem 0 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.md-typeset .lesson-link-list li {
+  margin: 0;
+  padding: 0.32rem 0;
+}
+
+.md-typeset .lesson-link-list a {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: space-between;
+  border: 0;
+  color: var(--ink);
+  font-size: 0.68rem;
+  line-height: 1.35;
+}
+
+.md-typeset .lesson-link-list a::after {
+  content: "↗";
+  flex: 0 0 auto;
+  color: var(--collection);
+}
+
+.md-typeset .lesson-link-list a:hover {
+  color: var(--collection);
+}
+
+.md-typeset .lesson-link-list a span {
+  margin-left: auto;
+  padding: 0.08rem 0.36rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--collection) 13%, transparent);
+  color: var(--collection);
+  font-family: var(--md-code-font-family);
+  font-size: 0.45rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.md-typeset .collection-topics {
+  margin: 0.8rem 0 0;
+  color: var(--ink-3);
+  font-size: 0.53rem;
+  line-height: 1.5;
+}
+
+.md-typeset .atlas-empty {
+  margin: 0 0 4rem;
+  padding: 2rem;
+  border: 1px dashed var(--line-strong);
+  color: var(--ink-2);
+  text-align: center;
+}
+
+.md-typeset .index-callout {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border-radius: 1rem;
+  background: var(--night);
+  color: var(--hero-paper);
+}
+
+.md-typeset .index-callout h2 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  color: inherit;
+  font-size: 1.8rem;
+}
+
+.md-typeset .index-callout p:not(.atlas-kicker) {
+  max-width: 38rem;
+  margin: 0.4rem 0 0;
+  color: var(--night-muted);
+  font-size: 0.7rem;
+}
+
+/* ---------- Spatial Join pilot ---------- */
+
+.md-typeset .lesson-hero {
+  display: grid;
+  grid-template-columns: minmax(17rem, 0.8fr) minmax(21rem, 1.2fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: center;
+  margin: 0 0 1rem;
+  padding: clamp(1.6rem, 4vw, 3.2rem);
+  border-radius: 1.25rem;
+  background:
+    radial-gradient(circle at 88% 18%, color-mix(in srgb, var(--lesson-accent) 34%, transparent), transparent 31%),
+    var(--night);
+  color: var(--hero-paper);
+}
+
+.md-typeset .lesson-hero h1 {
+  max-width: 7ch;
+  margin: 0;
+  color: inherit;
+  font-size: clamp(3.2rem, 8vw, 6.5rem);
+  font-weight: 300;
+  letter-spacing: -0.05em;
+  line-height: 0.83;
+}
+
+.md-typeset .lesson-collection {
+  color: color-mix(in srgb, var(--lesson-accent) 68%, white);
+}
+
+.md-typeset .lesson-deck {
+  max-width: 26rem;
+  margin: 1.3rem 0 0;
+  color: var(--night-muted);
+  font-size: 0.82rem;
+}
+
+.md-typeset .lesson-meta-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 1.7rem;
+}
+
+.md-typeset .lesson-meta-strip span {
+  padding: 0.42rem 0.62rem;
+  border: 1px solid var(--night-line);
+  border-radius: 999px;
+  color: var(--night-muted);
+  font-size: 0.52rem;
+  line-height: 1;
+}
+
+.md-typeset .lesson-meta-strip strong {
+  color: var(--hero-paper);
+  font-weight: 600;
+}
+
+.md-typeset .spatial-demo {
+  min-width: 0;
+  padding: 0.75rem;
+  border: 1px solid var(--night-line);
+  border-radius: 1rem;
+  background: rgba(255,255,255,0.045);
+}
+
+.md-typeset .spatial-demo__controls {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.25rem;
+  padding: 0.25rem;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.md-typeset .spatial-demo__controls button {
+  padding: 0.45rem 0.3rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--night-muted);
+  cursor: pointer;
+  font: 600 0.56rem/1 var(--md-text-font-family);
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.md-typeset .spatial-demo__controls button[aria-pressed="true"] {
+  background: var(--hero-paper);
+  color: var(--night);
+}
+
+.md-typeset .spatial-demo__map {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 0.5rem;
+  color: var(--hero-paper);
+}
+
+.join-map__grid { fill: transparent; }
+.district { stroke-width: 3; }
+.district--a { fill: rgba(208,139,62,.16); stroke: var(--collection-thinking); }
+.district--b { fill: rgba(61,129,150,.16); stroke: var(--collection-workspace); }
+.district--c { fill: rgba(82,123,89,.18); stroke: var(--collection-data); }
+
+.district-labels text {
+  fill: var(--hero-paper);
+  font: 600 24px var(--md-text-font-family);
+  text-anchor: middle;
+}
+
+.school-points circle {
+  fill: var(--hero-paper);
+  stroke: var(--night);
+  stroke-width: 4;
+}
+
+.join-links {
+  opacity: 0;
+  transition: opacity 240ms ease;
+}
+
+.join-links path {
+  fill: none;
+  stroke: var(--lesson-accent);
+  stroke-width: 4;
+  stroke-dasharray: 8 7;
+  stroke-linecap: round;
+}
+
+.spatial-demo[data-mode="intersect"] .join-links--intersect,
+.spatial-demo[data-mode="closest"] .join-links--closest {
+  opacity: 1;
+}
+
+.spatial-demo[data-mode="closest"] .join-links--closest path {
+  animation: join-path 1.8s linear infinite;
+}
+
+@keyframes join-path {
+  to { stroke-dashoffset: -30; }
+}
+
+.reverse-counts {
+  opacity: 0;
+  transition: opacity 240ms ease;
+}
+
+.reverse-counts circle {
+  fill: var(--lesson-accent);
+  stroke: var(--hero-paper);
+  stroke-width: 3;
+}
+
+.reverse-counts text {
+  fill: white;
+  font: 700 26px var(--md-text-font-family);
+  text-anchor: middle;
+}
+
+.spatial-demo[data-mode="reverse"] .reverse-counts { opacity: 1; }
+.spatial-demo[data-mode="reverse"] .district-labels,
+.spatial-demo[data-mode="reverse"] .school-points { opacity: 0.25; }
+
+.md-typeset .spatial-demo__caption {
+  min-height: 2.8rem;
+  margin: 0;
+  padding: 0.65rem 0.55rem 0.15rem;
+  border-top: 1px solid var(--night-line);
+  color: var(--night-muted);
+  font-size: 0.56rem;
+  line-height: 1.45;
+}
+
+.md-typeset .spatial-demo__caption strong { color: var(--hero-paper); }
+
+.md-typeset .resource-dock {
+  position: sticky;
+  z-index: 3;
+  top: 3.2rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 0 0 4rem;
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
+  box-shadow: 0 0.7rem 1.6rem rgba(20, 22, 25, 0.06);
+  backdrop-filter: blur(14px);
+}
+
+.md-typeset .resource-dock a {
+  display: grid;
+  grid-template-columns: 1.6rem 1fr;
+  padding: 0.85rem 1rem;
+  border: 0;
+  color: var(--ink);
+}
+
+.md-typeset .resource-dock a + a { border-left: 1px solid var(--line); }
+.md-typeset .resource-dock a:hover { background: color-mix(in srgb, var(--lesson-accent) 8%, transparent); }
+
+.md-typeset .resource-dock span {
+  grid-row: 1 / span 2;
+  color: var(--lesson-accent);
+  font-family: var(--md-code-font-family);
+  font-size: 0.5rem;
+}
+
+.md-typeset .resource-dock strong {
+  font-family: var(--serif);
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.md-typeset .resource-dock small {
+  color: var(--ink-3);
+  font-size: 0.5rem;
+}
+
+.md-typeset .lesson-prologue {
+  display: grid;
+  grid-template-columns: minmax(14rem, 0.75fr) minmax(18rem, 1.25fr);
+  gap: 3rem;
+  align-items: start;
+  margin: 0 0 4rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.md-typeset .lesson-prologue h2 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  line-height: 1.03;
+}
+
+.md-typeset .lesson-prologue > p {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: 0.85rem;
+  line-height: 1.65;
+}
+
+body:has(.lesson-hero) .md-typeset > h2 {
+  position: relative;
+  margin-top: 4rem;
+  padding-top: 1.25rem;
+  font-size: 1.9rem;
+}
+
+body:has(.lesson-hero) .md-typeset > h2::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 4rem;
+  height: 3px;
+  background: var(--lesson-accent);
+}
+
+.md-typeset .concept-lead {
+  margin: 1.2rem 0 2.5rem;
+  padding: clamp(1.3rem, 3vw, 2rem);
+  border-left: 4px solid var(--lesson-accent);
+  background: color-mix(in srgb, var(--lesson-accent) 8%, var(--surface));
+}
+
+.md-typeset .concept-lead h3 {
+  margin-top: 0;
+  font-size: 1.45rem;
+}
+
+.md-typeset .concept-lead p:last-child { margin-bottom: 0; }
+
+.md-typeset .direction-comparison,
+.md-typeset .mistake-grid,
+.md-typeset .reading-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin: 1.3rem 0 1.8rem;
+}
+
+.md-typeset .direction-comparison > div,
+.md-typeset .mistake-grid > div {
+  padding: 1.2rem;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.md-typeset .direction-comparison h4,
+.md-typeset .mistake-grid h3 {
+  margin: 0 0 0.5rem;
+  color: var(--ink);
+}
+
+.md-typeset .direction-comparison h4 { font-size: 1.1rem; }
+.md-typeset .mistake-grid h3 { color: var(--lesson-accent); font: 600 0.59rem/1.4 var(--md-code-font-family); letter-spacing: 0.08em; text-transform: uppercase; }
+.md-typeset .direction-comparison p,
+.md-typeset .mistake-grid p { margin-bottom: 0; color: var(--ink-2); font-size: 0.68rem; }
+
+.md-typeset .deliverable-card {
+  margin: 3rem 0;
+  padding: clamp(1.4rem, 4vw, 2.5rem);
+  border-radius: 1rem;
+  background: var(--night);
+  color: var(--hero-paper);
+}
+
+.md-typeset .deliverable-card h2 {
+  margin: 0 0 1rem;
+  padding: 0;
+  border: 0;
+  color: inherit;
+  font-size: 2rem;
+}
+
+.md-typeset .deliverable-card li { color: var(--night-muted); }
+.md-typeset .deliverable-card .atlas-button { margin-top: 0.6rem; }
+
+.md-typeset .reading-card {
+  display: flex;
+  min-height: 9rem;
+  flex-direction: column;
+  padding: 1.2rem;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  transition: border-color 160ms ease, transform 160ms ease;
+}
+
+.md-typeset .reading-card:hover {
+  border-color: var(--lesson-accent);
+  transform: translateY(-3px);
+}
+
+.md-typeset .reading-card span {
+  color: var(--lesson-accent);
+  font-family: var(--md-code-font-family);
+  font-size: 0.5rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.md-typeset .reading-card strong {
+  margin: 0.8rem 0 0.4rem;
+  font-family: var(--serif);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.md-typeset .reading-card small {
+  margin-top: auto;
+  color: var(--ink-3);
+  font-size: 0.58rem;
+  line-height: 1.5;
+}
+
+.md-typeset .lesson-next {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4rem;
+  padding: 1.2rem 0;
+  border-top: 1px solid var(--line-strong);
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.md-typeset .lesson-next p {
+  margin: 0;
+  color: var(--ink-3);
+  font-family: var(--md-code-font-family);
+  font-size: 0.52rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.md-typeset .lesson-next a {
+  display: grid;
+  border: 0;
+  text-align: right;
+}
+
+.md-typeset .lesson-next a span { color: var(--ink-3); font-size: 0.55rem; }
+.md-typeset .lesson-next a strong { color: var(--ink); font-family: var(--serif); font-size: 1.1rem; font-weight: 500; }
+.md-typeset .lesson-next a:hover strong { color: var(--lesson-accent); }
+
+/* ---------- Responsive and accessible motion ---------- */
+
+@media screen and (max-width: 900px) {
+  .md-typeset .atlas-hero,
+  .md-typeset .lesson-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .md-typeset .atlas-hero__map {
+    min-height: 19rem;
+    order: -1;
+  }
+
+  .md-typeset .atlas-hero__copy { padding-top: 1rem; }
+  .md-typeset .portal-grid,
+  .md-typeset .collection-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  .md-typeset .learning-act__header {
+    grid-template-columns: 4rem 1fr;
+  }
+
+  .md-typeset .learning-act__header p {
+    grid-column: 2;
+  }
+
+  .md-typeset .atlas-toolbar {
+    grid-template-columns: 10rem 1fr;
+  }
+
+  .md-typeset .atlas-results { grid-column: 2; }
+}
+
+@media screen and (max-width: 620px) {
+  .md-typeset .learning-atlas,
+  .md-typeset .home-portal { padding-inline: 0; }
+
+  .md-typeset .atlas-hero,
+  .md-typeset .lesson-hero { margin-inline: -0.4rem; border-radius: 0.85rem; }
+  .md-typeset .atlas-hero { min-height: 0; }
+  .md-typeset .atlas-hero__map { min-height: 14rem; }
+  .md-typeset .atlas-hero__copy { padding: 1.5rem; }
+  .md-typeset .atlas-hero h1 { font-size: clamp(2.8rem, 17vw, 4.3rem); }
+
+  .md-typeset .home-route,
+  .md-typeset .atlas-intro,
+  .md-typeset .lesson-prologue { grid-template-columns: 1fr; gap: 1.2rem; }
+
+  .md-typeset .portal-grid,
+  .md-typeset .collection-grid,
+  .md-typeset .direction-comparison,
+  .md-typeset .mistake-grid,
+  .md-typeset .reading-cards { grid-template-columns: 1fr; }
+
+  .md-typeset .portal-card { min-height: 14rem; }
+  .md-typeset .collection-card { min-height: 22rem; }
+
+  .md-typeset .atlas-toolbar {
+    grid-template-columns: 1fr;
+  }
+
+  .md-typeset .atlas-results { grid-column: 1; }
+
+  .md-typeset .learning-act__header {
+    grid-template-columns: 3.3rem 1fr;
+  }
+
+  .md-typeset .learning-act__header h2 { font-size: 1.7rem; }
+
+  .md-typeset .index-callout { align-items: flex-start; flex-direction: column; }
+  .md-typeset .lesson-hero { padding: 1.3rem; }
+  .md-typeset .lesson-hero h1 { font-size: 3.7rem; }
+
+  .md-typeset .resource-dock {
+    position: static;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .md-typeset .resource-dock a + a { border-left: 1px solid var(--line); }
+  .md-typeset .resource-dock a:nth-child(3) { border-top: 1px solid var(--line); border-left: 0; }
+  .md-typeset .resource-dock a:nth-child(4) { border-top: 1px solid var(--line); }
+  .md-typeset .lesson-next { align-items: flex-start; flex-direction: column; }
+  .md-typeset .lesson-next a { text-align: left; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .atlas-route path,
+  .home-points circle,
+  .spatial-demo[data-mode="closest"] .join-links--closest path {
+    animation: none;
+  }
+
+  .md-typeset .collection-card,
+  .md-typeset .portal-card,
+  .md-typeset .atlas-button,
+  .md-typeset .collection-signal i,
+  .md-typeset .reading-card {
+    transition: none;
+  }
+}
+
+.md-typeset .atlas-button:focus-visible,
+.md-typeset .portal-card:focus-visible,
+.md-typeset .collection-card a:focus-visible,
+.md-typeset .resource-dock a:focus-visible,
+.md-typeset .reading-card:focus-visible,
+.md-typeset .spatial-demo__controls button:focus-visible {
+  outline: 3px solid var(--lesson-accent, var(--accent));
+  outline-offset: 3px;
+}

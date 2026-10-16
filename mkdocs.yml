@@ -1,5 +1,5 @@
-site_name: ArcGIS Pro Course
-site_description: "A practical learning hub for ArcGIS Pro tutorials, labs, datasets, and GIS concepts."
+site_name: Intro to GIS
+site_description: "An open, interactive learning atlas for GIS concepts, ArcGIS Pro workflows, labs, and readings."
 site_author: "Shokran Rahiminezhad"
 site_url: "https://intro-to-gis.github.io/"
 
@@ -47,6 +47,7 @@ theme:
 
 # Parked: kept in the repo, not published. Remove the entry to bring it back.
 exclude_docs: |
+  courses/
   labs/index.md
   concepts/index.md
   labs/lab-template.md
@@ -91,6 +92,7 @@ extra_css:
 
 extra_javascript:
   - assets/js/lab-widget.js
+  - assets/js/lesson-experience.js
   - assets/js/topics-table.js
   - assets/js/sticky-table-header.js
 extra:
@@ -102,28 +104,11 @@ extra:
       link: "https://github.com/Intro-To-GIS/intro-to-gis.github.io"
       name: "GitHub repository"
 
-copyright: "Course materials for teaching and learning ArcGIS Pro."
+copyright: "Open course materials for learning GIS with ArcGIS Pro."
 
 nav:
   - Home: index.md
-  - Lessons:
-      - Overview: lessons/index.md
-      - "00 · Introduction to GIS": lessons/00-introduction-to-gis.md
-      - "01 · Getting Started": lessons/01-getting-started.md
-      - "02 · Data, Layers, and Coordinate Systems": lessons/02-data-layers-coordinate-systems.md
-      - "02b · Data Acquisition and Management": lessons/02b-data-management.md
-      - "03 · Selection by Attribute": lessons/03-selection-by-attribute.md
-      - "03b · Select by Location": lessons/03b-selection-by-location.md
-      - "03c · Tabular Data Management": lessons/03c-tabular-data-management.md
-      - "03d · Table Joins": lessons/03d-table-joins.md
-      - "04 · Symbology and Map Design": lessons/04-symbology-map-design.md
-      - "05 · Geoprocessing": lessons/05-geoprocessing.md
-      - "06 · Raster Analysis": lessons/06-raster-analysis.md
-      - "07 · Spatial Joins": lessons/07-spatial-joins.md
-      - "08 · Introduction to Geospatial Programming": lessons/08-geospatial-programming.md
-      - "09 · The Future of GISc": lessons/09-future-of-gisc.md
-  - Courses:
-      - "Principles of GISc — Fall 2026 (Lehman College)": courses/lehman-gisc-fall2026.md
-      - "Intro to GIS — Spring 2027 (Hunter College)": courses/hunter-intro-gis-spring2027.md
+  - Lessons: lessons/index.md
+  - Course Index: lessons/course-index.md
   - Resources: resources.md
   - About: about.md
