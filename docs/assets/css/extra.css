@@ -3193,3 +3193,173 @@ body:has(.lesson-hero) .md-typeset > h2::before {
 .spatial-demo[data-mode="intersect"] .loc-s--intersect,
 .spatial-demo[data-mode="within"] .loc-s--within,
 .spatial-demo[data-mode="distance"] .loc-s--distance { opacity: 1; }
+
+/* ------------------------------------------------------------------ *
+   LESSON 06 DEMO — CELL SIZE SETS THE CEILING
+   One stream, three grids. The cells that would record it are
+   generated from the line itself, not drawn by hand.
+ * ------------------------------------------------------------------ */
+
+.ras-grid path { stroke: rgba(255, 255, 255, 0.09); stroke-width: 1; fill: none; }
+.ras-grid,
+.ras-cells { opacity: 0; transition: opacity 260ms ease; }
+.spatial-demo[data-mode="fine"] .ras-grid--fine,
+.spatial-demo[data-mode="fine"] .ras-cells--fine,
+.spatial-demo[data-mode="mid"] .ras-grid--mid,
+.spatial-demo[data-mode="mid"] .ras-cells--mid,
+.spatial-demo[data-mode="coarse"] .ras-grid--coarse,
+.spatial-demo[data-mode="coarse"] .ras-cells--coarse { opacity: 1; }
+
+.ras-cells rect {
+  fill: color-mix(in srgb, var(--lesson-accent) 58%, transparent);
+  stroke: color-mix(in srgb, var(--lesson-accent) 80%, transparent);
+  stroke-width: 1;
+}
+
+.ras-truth {
+  fill: none;
+  stroke: var(--hero-paper);
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+}
+
+.ras-key {
+  fill: var(--night-muted);
+  font: 400 14px var(--md-text-font-family);
+}
+.ras-key--cells { fill: var(--lesson-accent); }
+
+.ras-size__n {
+  fill: var(--hero-paper);
+  font: 500 26px var(--md-code-font-family);
+  text-anchor: end;
+  opacity: 0;
+  transition: opacity 240ms ease;
+}
+.spatial-demo[data-mode="fine"] .ras-s--fine,
+.spatial-demo[data-mode="mid"] .ras-s--mid,
+.spatial-demo[data-mode="coarse"] .ras-s--coarse { opacity: 1; }
+
+/* ------------------------------------------------------------------ *
+   LESSON 08 DEMO — COULD YOU PROVE WHAT YOU DID?
+   Six datasets, and the console output that exists only when the work
+   was written down.
+ * ------------------------------------------------------------------ */
+
+.gp-heading {
+  fill: var(--hero-paper);
+  font: 500 17px var(--md-code-font-family);
+}
+.gp-chip rect {
+  fill: rgba(255, 255, 255, 0.045);
+  stroke: var(--night-line);
+  stroke-width: 1.5;
+  transition: fill 260ms ease, stroke 260ms ease;
+}
+.gp-chip text {
+  fill: var(--night-muted);
+  font: 400 17px var(--md-code-font-family);
+  transition: fill 260ms ease;
+}
+
+/* By hand, only the one in front of you is done. */
+.spatial-demo[data-mode="byhand"] .gp-chip--1 rect,
+.spatial-demo[data-mode="loop"] .gp-chip rect,
+.spatial-demo[data-mode="caught"] .gp-chip rect {
+  fill: color-mix(in srgb, var(--lesson-accent) 26%, transparent);
+  stroke: color-mix(in srgb, var(--lesson-accent) 62%, transparent);
+}
+.spatial-demo[data-mode="byhand"] .gp-chip--1 text,
+.spatial-demo[data-mode="loop"] .gp-chip text,
+.spatial-demo[data-mode="caught"] .gp-chip text { fill: var(--hero-paper); }
+
+.spatial-demo[data-mode="caught"] .gp-chip--4 rect {
+  fill: rgba(216, 164, 106, 0.16);
+  stroke: rgba(216, 164, 106, 0.7);
+  stroke-dasharray: 7 5;
+}
+.spatial-demo[data-mode="caught"] .gp-chip--4 text { fill: #d8a46a; }
+
+.gp-foot {
+  fill: var(--night-muted);
+  font: 400 14px var(--md-text-font-family);
+  opacity: 0;
+  transition: opacity 240ms ease;
+}
+.spatial-demo[data-mode="byhand"] .gp-foot--byhand,
+.spatial-demo[data-mode="loop"] .gp-foot--loop,
+.spatial-demo[data-mode="caught"] .gp-foot--caught { opacity: 1; }
+
+.gp-console {
+  fill: rgba(0, 0, 0, 0.3);
+  stroke: var(--night-line);
+  stroke-width: 1.5;
+}
+.gp-lines { opacity: 0; transition: opacity 260ms ease; }
+.gp-lines text {
+  fill: var(--hero-paper);
+  font: 400 15px var(--md-code-font-family);
+}
+.gp-comment { fill: var(--night-muted) !important; }
+.gp-done { fill: var(--lesson-accent) !important; }
+.gp-err { fill: #d8a46a !important; }
+.gp-err--detail { font-size: 13px !important; opacity: 0.85; }
+.spatial-demo[data-mode="byhand"] .gp-lines--byhand,
+.spatial-demo[data-mode="loop"] .gp-lines--loop,
+.spatial-demo[data-mode="caught"] .gp-lines--caught { opacity: 1; }
+
+/* ------------------------------------------------------------------ *
+   LESSON 09 DEMO — WHAT CHANGED, AND WHAT DID NOT
+   Each shift beside the judgement it still needs, and the lesson that
+   judgement came from.
+ * ------------------------------------------------------------------ */
+
+.fut-col {
+  font: 500 12px var(--md-code-font-family);
+  letter-spacing: 0.16em;
+}
+.fut-col--a { fill: var(--lesson-accent); }
+.fut-col--b { fill: var(--night-muted); }
+.fut-divider { stroke: var(--night-line); stroke-width: 1.5; }
+.fut-rule { stroke: var(--night-line); stroke-width: 1.5; }
+
+.fut-state { opacity: 0; transition: opacity 280ms ease; }
+.fut-state text {
+  fill: var(--hero-paper);
+  font: 400 18px var(--md-text-font-family);
+}
+.fut-state .fut-b { fill: var(--night-muted); }
+.spatial-demo[data-mode="realtime"] .fut-state--realtime,
+.spatial-demo[data-mode="cloud"] .fut-state--cloud,
+.spatial-demo[data-mode="ml"] .fut-state--ml { opacity: 1; }
+
+.fut-back__label {
+  fill: var(--night-muted);
+  font: 400 13px var(--md-code-font-family);
+  letter-spacing: 0.1em;
+}
+.fut-back__to {
+  fill: var(--lesson-accent);
+  font: 500 15px var(--md-text-font-family);
+  opacity: 0;
+  transition: opacity 240ms ease;
+}
+.spatial-demo[data-mode="realtime"] .fut-to--realtime,
+.spatial-demo[data-mode="cloud"] .fut-to--cloud,
+.spatial-demo[data-mode="ml"] .fut-to--ml { opacity: 1; }
+
+/* ------------------------------------------------------------------ *
+   MOBILE: NO SIDEWAYS DRIFT
+   On narrow screens the theme lets code blocks and wide tables bleed
+   past the content column, which leaves the whole page draggable by a
+   few pixels. They keep their own internal scroll; the page does not.
+ * ------------------------------------------------------------------ */
+
+@media screen and (max-width: 44.9375em) {
+  .md-typeset > .highlight,
+  .md-typeset > .md-typeset__scrollwrap,
+  .md-typeset .highlighttable {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
