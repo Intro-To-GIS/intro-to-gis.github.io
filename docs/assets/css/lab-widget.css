@@ -146,3 +146,144 @@
   border-bottom:1px solid color-mix(in srgb, currentColor 32%, transparent);}
 .lab-toc a:hover{border-bottom-color:currentColor;}
 
+
+/* ------------------------------------------------------------------ *
+   A LAB IS A SEQUENCE
+   The four-door bar brings you to a lab; inside it, a four-stage rail
+   takes over. Same numerals, same current-state treatment, so the two
+   read as one system. Built at load by lab-journey.js.
+ * ------------------------------------------------------------------ */
+
+.md-typeset .lab-rail {
+  margin: 0 0 1.4rem;
+  border: 1px solid var(--line);
+  border-radius: 0.7rem;
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
+}
+
+.md-typeset .lab-rail ol {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.md-typeset .lab-rail li { margin: 0; }
+
+.md-typeset .lab-rail button {
+  position: relative;
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1.5rem 1fr;
+  align-items: baseline;
+  padding: 0.7rem 0.75rem;
+  border: 0;
+  background: none;
+  color: var(--ink);
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+}
+
+.md-typeset .lab-rail li + li button { border-left: 1px solid var(--line); }
+.md-typeset .lab-rail button:hover {
+  background: color-mix(in srgb, var(--lesson-accent, var(--ink)) 8%, transparent);
+}
+
+.md-typeset .lab-rail__n {
+  color: var(--lesson-accent-ink, var(--ink-3));
+  font-family: var(--md-code-font-family);
+  font-size: 0.5rem;
+}
+
+.md-typeset .lab-rail__label {
+  font-family: var(--serif);
+  font-size: 0.86rem;
+  line-height: 1.15;
+}
+
+/* The stage you are standing in, marked exactly as the dock marks its door. */
+.md-typeset .lab-rail button.is-current {
+  background: color-mix(in srgb, var(--lesson-accent, var(--ink)) 9%, transparent);
+}
+.md-typeset .lab-rail button.is-current::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 2px;
+  background: var(--lesson-accent, var(--ink));
+}
+.md-typeset .lab-rail button.is-current .lab-rail__label {
+  color: var(--lesson-accent-ink, var(--ink));
+}
+
+.md-typeset .lab-rail button.is-locked .lab-rail__label { color: var(--ink-3); }
+
+.md-typeset .lab-rail__lock {
+  width: 0.56rem;
+  height: 0.65rem;
+  margin-left: 0.3rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  opacity: 0;
+  vertical-align: -0.04rem;
+}
+.md-typeset .lab-rail button.is-locked .lab-rail__lock { opacity: 0.75; }
+
+/* The step number on each layer, matching the rail. */
+.md-typeset .lab-widget .layer-step {
+  margin-right: 0.55rem;
+  color: var(--lesson-accent-ink, var(--ink-3));
+  font-family: var(--md-code-font-family);
+  font-size: 0.5rem;
+  line-height: 1.9;
+}
+
+/* The way forward, at the foot of each stage. */
+.md-typeset .lab-onward {
+  margin: 1.6rem 0 0.2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.md-typeset .lab-onward__next {
+  display: inline-grid;
+  padding: 0.55rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 0.55rem;
+  background: none;
+  color: var(--ink);
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+  text-decoration: none;
+  transition: border-color 160ms ease, background 160ms ease;
+}
+
+.md-typeset .lab-onward__next:hover {
+  border-color: color-mix(in srgb, var(--lesson-accent, var(--ink)) 50%, var(--line));
+  background: color-mix(in srgb, var(--lesson-accent, var(--ink)) 7%, transparent);
+}
+
+.md-typeset .lab-onward__next span {
+  color: var(--lesson-accent-ink, var(--ink-3));
+  font-family: var(--md-code-font-family);
+  font-size: 0.5rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.md-typeset .lab-onward__next strong {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 44.9375em) {
+  .md-typeset .lab-rail ol { grid-auto-flow: row; grid-auto-columns: auto; }
+  .md-typeset .lab-rail li + li button { border-left: 0; border-top: 1px solid var(--line); }
+  .md-typeset .lab-rail button.is-current::before { inset: 0 auto 0 0; width: 2px; height: auto; }
+}

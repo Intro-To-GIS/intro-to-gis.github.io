@@ -1201,16 +1201,18 @@ body:has(.topics-table) .md-sidebar--primary {
      constant hue and the most chroma the gamut allows, so the ink is
      recognisably the same colour, not a grey version of it. The identity
      colour above still does the fills, rules, washes and demos; this tier
-     is for type below about 14px. Four of the nine were already safe and
-     are unchanged. */
-  --collection-thinking-ink:       #a36100;
-  --collection-workspace-ink:      #34798e;
-  --collection-data-ink:           #517a58;
-  --collection-tables-ink:         #8363a0;
-  --collection-cartography-ink:    #b45250;
+     is for type below about 14px. The target background is the worst case
+     the ink sits on — paper under a 9% wash of its own colour, which is
+     how a current dock door and a current lab stage are marked — so it
+     clears AA on plain paper with room to spare. */
+  --collection-thinking-ink:       #9c5d00;
+  --collection-workspace-ink:      #2d7287;
+  --collection-data-ink:           #4a7352;
+  --collection-tables-ink:         #7c5c99;
+  --collection-cartography-ink:    #ad4b4a;
   --collection-relationships-ink:  #7555a6;
-  --collection-vector-ink:         #af5835;
-  --collection-raster-ink:         #2b7d71;
+  --collection-vector-ink:         #a7512e;
+  --collection-raster-ink:         #21766a;
   --collection-future-ink:         #355fa2;
 
   --night:                     #17191d;
@@ -2210,6 +2212,18 @@ body:has(.lesson-hero) .md-typeset > h1 {
 
 /* The dock travels onto the slide and lab pages a lesson owns, where there
    is no hero to set the accent, so each copy carries its collection's. */
+   /* The page carries it too, so anything else on a lab or slide page —
+   the stage rail, the onward links — can reach for the same colour. */
+body:has(.resource-dock--thinking) { --lesson-accent: var(--collection-thinking); --lesson-accent-ink: var(--collection-thinking-ink); }
+body:has(.resource-dock--workspace) { --lesson-accent: var(--collection-workspace); --lesson-accent-ink: var(--collection-workspace-ink); }
+body:has(.resource-dock--data) { --lesson-accent: var(--collection-data); --lesson-accent-ink: var(--collection-data-ink); }
+body:has(.resource-dock--tables) { --lesson-accent: var(--collection-tables); --lesson-accent-ink: var(--collection-tables-ink); }
+body:has(.resource-dock--cartography) { --lesson-accent: var(--collection-cartography); --lesson-accent-ink: var(--collection-cartography-ink); }
+body:has(.resource-dock--relationships) { --lesson-accent: var(--collection-relationships); --lesson-accent-ink: var(--collection-relationships-ink); }
+body:has(.resource-dock--vector) { --lesson-accent: var(--collection-vector); --lesson-accent-ink: var(--collection-vector-ink); }
+body:has(.resource-dock--raster) { --lesson-accent: var(--collection-raster); --lesson-accent-ink: var(--collection-raster-ink); }
+body:has(.resource-dock--future) { --lesson-accent: var(--collection-future); --lesson-accent-ink: var(--collection-future-ink); }
+
 .resource-dock--thinking { --lesson-accent: var(--collection-thinking); --lesson-accent-ink: var(--collection-thinking-ink); }
 .resource-dock--workspace { --lesson-accent: var(--collection-workspace); --lesson-accent-ink: var(--collection-workspace-ink); }
 .resource-dock--data { --lesson-accent: var(--collection-data); --lesson-accent-ink: var(--collection-data-ink); }
