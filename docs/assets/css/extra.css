@@ -1242,6 +1242,19 @@ body:has(.lesson-hero) {
   --lesson-accent: var(--collection-relationships);
 }
 
+/* Each lesson takes the accent of the collection it belongs to, so the hero,
+   the resource dock, the demo and the deliverable card all follow the colour
+   that identifies that collection on the Lessons page. */
+body:has(.lesson-hero--thinking)      { --lesson-accent: var(--collection-thinking); }
+body:has(.lesson-hero--workspace)     { --lesson-accent: var(--collection-workspace); }
+body:has(.lesson-hero--data)          { --lesson-accent: var(--collection-data); }
+body:has(.lesson-hero--tables)        { --lesson-accent: var(--collection-tables); }
+body:has(.lesson-hero--cartography)   { --lesson-accent: var(--collection-cartography); }
+body:has(.lesson-hero--relationships) { --lesson-accent: var(--collection-relationships); }
+body:has(.lesson-hero--vector)        { --lesson-accent: var(--collection-vector); }
+body:has(.lesson-hero--raster)        { --lesson-accent: var(--collection-raster); }
+body:has(.lesson-hero--future)        { --lesson-accent: var(--collection-future); }
+
 body:has(.lesson-hero) .md-content__inner {
   max-width: 58rem;
   margin: 0 auto;
@@ -1897,14 +1910,21 @@ body:has(.lesson-hero) .md-typeset > h1 {
   color: var(--hero-paper);
 }
 
+/* The hero title is set at display size in a narrow column, so a long word
+   has nowhere to go. Rather than let the browser snap it mid-syllable, each
+   lesson can widen the measure and step the size down: a long single word
+   then reads as a wordmark instead of a broken one. */
 .md-typeset .lesson-hero h1 {
-  max-width: 7ch;
+  max-width: var(--hero-title-measure, 7ch);
   margin: 0;
   color: inherit;
-  font-size: clamp(3.2rem, 8vw, 6.5rem);
+  font-size: var(--hero-title-size, clamp(3.2rem, 8vw, 6.5rem));
   font-weight: 300;
   letter-spacing: -0.05em;
   line-height: 0.83;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: manual;
 }
 
 .md-typeset .lesson-collection {
@@ -1949,7 +1969,8 @@ body:has(.lesson-hero) .md-typeset > h1 {
 
 .md-typeset .spatial-demo__controls {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
   gap: 0.25rem;
   padding: 0.25rem;
   border-radius: 999px;
@@ -2341,7 +2362,7 @@ body:has(.lesson-hero) .md-typeset > h2::before {
 
   .md-typeset .index-callout { align-items: flex-start; flex-direction: column; }
   .md-typeset .lesson-hero { padding: 1.3rem; }
-  .md-typeset .lesson-hero h1 { font-size: 3.7rem; }
+  .md-typeset .lesson-hero h1 { font-size: min(3.7rem, var(--hero-title-size, 3.7rem)); }
 
   .md-typeset .resource-dock {
     position: static;
@@ -2380,3 +2401,88 @@ body:has(.lesson-hero) .md-typeset > h2::before {
   outline: 3px solid var(--lesson-accent, var(--accent));
   outline-offset: 3px;
 }
+
+
+/* ============================================================
+   GEOPROCESSING DEMO
+   Four operations on one pair of layers. Clip and Intersect are
+   deliberately identical in geometry and differ only in the fields
+   they carry out, which is the distinction the lesson turns on.
+   ============================================================ */
+
+.geo-base { fill: rgba(180,92,57,.16); stroke: var(--lesson-accent); stroke-width: 3; transition: opacity 260ms ease; }
+.geo-area { fill: rgba(246,241,231,.07); stroke: var(--hero-paper); stroke-width: 2.5; stroke-dasharray: 10 8; }
+.geo-seam { stroke: var(--lesson-accent); stroke-width: 3; opacity: .85; transition: opacity 260ms ease; }
+
+.geo-layer { opacity: 0; transition: opacity 260ms ease; }
+.spatial-demo[data-mode="buffer"]   .geo-layer--buffer,
+.spatial-demo[data-mode="clip"]     .geo-layer--cut,
+.spatial-demo[data-mode="overlay"]  .geo-layer--cut,
+.spatial-demo[data-mode="dissolve"] .geo-layer--dissolve { opacity: 1; }
+
+/* Clip and Intersect keep only what falls inside the study area. */
+.spatial-demo[data-mode="clip"]    .geo-base,
+.spatial-demo[data-mode="overlay"] .geo-base,
+.spatial-demo[data-mode="clip"]    .geo-seam,
+.spatial-demo[data-mode="overlay"] .geo-seam { opacity: .18; }
+/* Dissolve replaces the three parcels with one shape, so the individual
+   outlines have to go as well as the seams between them. */
+.spatial-demo[data-mode="dissolve"] .geo-seam,
+.spatial-demo[data-mode="dissolve"] .geo-base { opacity: 0; }
+
+.geo-buffer { fill: none; stroke: var(--lesson-accent); stroke-width: 3; stroke-dasharray: 9 7; }
+.geo-cut { fill: rgba(180,92,57,.46); stroke: var(--hero-paper); stroke-width: 3; }
+.geo-dissolved { fill: rgba(180,92,57,.34); stroke: var(--lesson-accent); stroke-width: 4; }
+
+.geo-note text { fill: var(--hero-paper); font: 600 19px var(--md-text-font-family); }
+.geo-note rect { fill: rgba(0,0,0,.34); stroke: var(--night-line); stroke-width: 1.5; rx: 7; }
+.geo-fields { opacity: 0; transition: opacity 260ms ease; }
+.spatial-demo[data-mode="clip"]    .geo-fields--clip,
+.spatial-demo[data-mode="overlay"] .geo-fields--overlay { opacity: 1; }
+.geo-fields text { fill: var(--hero-paper); font: 500 17px var(--md-code-font-family); }
+.geo-fields rect { fill: rgba(246,241,231,.12); stroke: rgba(246,241,231,.3); stroke-width: 1.2; rx: 5; }
+.geo-fields .geo-field--extra rect { fill: color-mix(in srgb, var(--lesson-accent) 55%, transparent);
+  stroke: var(--lesson-accent); }
+
+/* ---------- Lab cards, for lessons whose tools each have their own lab --- */
+.md-typeset .lab-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: 0.8rem;
+  margin: 1.4rem 0 2rem;
+}
+.md-typeset .lab-card {
+  display: block;
+  padding: 1rem 1.1rem 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: 0.6rem;
+  background: var(--surface);
+  text-decoration: none;
+  transition: background 150ms ease, border-color 150ms ease;
+}
+.md-typeset .lab-card:hover {
+  background: color-mix(in srgb, var(--lesson-accent) 7%, var(--surface));
+  border-color: color-mix(in srgb, var(--lesson-accent) 45%, var(--line));
+}
+.md-typeset .lab-card span {
+  display: block;
+  font-family: var(--md-code-font-family);
+  font-size: 0.52rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--lesson-accent);
+}
+.md-typeset .lab-card strong {
+  display: block;
+  margin: 0.35rem 0 0.2rem;
+  font-size: 0.86rem;
+  color: var(--ink);
+}
+.md-typeset .lab-card small { color: var(--ink-3); font-size: 0.68rem; line-height: 1.45; }
+
+/* A lesson with no lab keeps the four-door shape and says so plainly. */
+.md-typeset .resource-dock .dock-empty {
+  pointer-events: none;
+  opacity: 0.45;
+}
+.md-typeset .resource-dock .dock-empty strong { color: var(--ink-3); }

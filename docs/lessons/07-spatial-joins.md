@@ -220,5 +220,5 @@ Using one target layer and one join layer:
 
 <aside class="lesson-next">
   <p>Continue the collection</p>
-  <a href="../08-spatial-auto/"><span>Next lesson</span><strong>Spatial Autocorrelation →</strong></a>
+  <a href="../08-geospatial-programming/"><span>Next collection</span><strong>Geospatial Programming →</strong></a>
 </aside>

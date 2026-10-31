@@ -48,31 +48,36 @@
     input.addEventListener("input", updateFilter);
   }
 
+  // One interactive demo component, reused by every lesson. Each button
+  // carries its own caption in data-caption, so a new lesson needs no JS.
+  // The legacy map keeps the original Spatial Join markup working.
+  var LEGACY_CAPTIONS = {
+    intersect: "<strong>Inside:</strong> each school receives the district it falls within.",
+    closest: "<strong>Closest:</strong> every school is paired\u2014even when the nearest match is too far away to be meaningful.",
+    reverse: "<strong>Count:</strong> reverse the direction and each district receives the number of schools inside it."
+  };
+
   function initializeSpatialDemo() {
-    var demo = document.querySelector("[data-spatial-demo]");
-    if (!demo) return;
+    Array.from(document.querySelectorAll("[data-spatial-demo]")).forEach(function (demo) {
+      var buttons = Array.from(demo.querySelectorAll("[data-spatial-mode]"));
+      var caption = demo.querySelector("[data-spatial-caption]");
 
-    var buttons = Array.from(demo.querySelectorAll("[data-spatial-mode]"));
-    var caption = demo.querySelector("[data-spatial-caption]");
-    var captions = {
-      intersect: "<strong>Inside:</strong> each school receives the district it falls within.",
-      closest: "<strong>Closest:</strong> every school is paired—even when the nearest match is too far away to be meaningful.",
-      reverse: "<strong>Count:</strong> reverse the direction and each district receives the number of schools inside it."
-    };
-
-    buttons.forEach(function (button) {
-      button.addEventListener("click", function () {
+      function select(button) {
         var mode = button.dataset.spatialMode;
         demo.dataset.mode = mode;
-
         buttons.forEach(function (candidate) {
           candidate.setAttribute(
             "aria-pressed",
             String(candidate.dataset.spatialMode === mode)
           );
         });
+        if (caption) {
+          caption.innerHTML = button.dataset.caption || LEGACY_CAPTIONS[mode] || "";
+        }
+      }
 
-        if (caption) caption.innerHTML = captions[mode];
+      buttons.forEach(function (button) {
+        button.addEventListener("click", function () { select(button); });
       });
     });
   }
