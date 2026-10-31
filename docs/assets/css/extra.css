@@ -1195,6 +1195,24 @@ body:has(.topics-table) .md-sidebar--primary {
   --collection-vector:         #b45c39;
   --collection-raster:         #2f8175;
   --collection-future:         #355fa2;
+
+  /* Each collection colour again, darkened only as far as it must be to
+     clear 4.5:1 against the paper as small text. Derived in OKLab at
+     constant hue and the most chroma the gamut allows, so the ink is
+     recognisably the same colour, not a grey version of it. The identity
+     colour above still does the fills, rules, washes and demos; this tier
+     is for type below about 14px. Four of the nine were already safe and
+     are unchanged. */
+  --collection-thinking-ink:       #a36100;
+  --collection-workspace-ink:      #34798e;
+  --collection-data-ink:           #517a58;
+  --collection-tables-ink:         #8363a0;
+  --collection-cartography-ink:    #b45250;
+  --collection-relationships-ink:  #7555a6;
+  --collection-vector-ink:         #af5835;
+  --collection-raster-ink:         #2b7d71;
+  --collection-future-ink:         #355fa2;
+
   --night:                     #17191d;
   --night-muted:               #b8bbc1;
   --night-line:                rgba(255, 255, 255, 0.16);
@@ -1211,6 +1229,19 @@ body:has(.topics-table) .md-sidebar--primary {
   --collection-vector:         #d07c59;
   --collection-raster:         #65aa9d;
   --collection-future:         #7395cf;
+
+  /* On the dark paper these already clear 4.5:1, so the ink tier is the
+     colour itself and nothing shifts between schemes without reason. */
+  --collection-thinking-ink:       #e3a65e;
+  --collection-workspace-ink:      #67a8bc;
+  --collection-data-ink:           #7ca383;
+  --collection-tables-ink:         #a78cc0;
+  --collection-cartography-ink:    #dd8580;
+  --collection-relationships-ink:  #a68bd0;
+  --collection-vector-ink:         #d07c59;
+  --collection-raster-ink:         #65aa9d;
+  --collection-future-ink:         #7395cf;
+
   --night:                     #0c0e11;
   --hero-paper:                #f2eee5;
 }
@@ -1240,20 +1271,21 @@ body:has(.lesson-hero) .md-sidebar--primary {
 
 body:has(.lesson-hero) {
   --lesson-accent: var(--collection-relationships);
+  --lesson-accent-ink: var(--collection-relationships-ink);
 }
 
 /* Each lesson takes the accent of the collection it belongs to, so the hero,
    the resource dock, the demo and the deliverable card all follow the colour
    that identifies that collection on the Lessons page. */
-body:has(.lesson-hero--thinking)      { --lesson-accent: var(--collection-thinking); }
-body:has(.lesson-hero--workspace)     { --lesson-accent: var(--collection-workspace); }
-body:has(.lesson-hero--data)          { --lesson-accent: var(--collection-data); }
-body:has(.lesson-hero--tables)        { --lesson-accent: var(--collection-tables); }
-body:has(.lesson-hero--cartography)   { --lesson-accent: var(--collection-cartography); }
-body:has(.lesson-hero--relationships) { --lesson-accent: var(--collection-relationships); }
-body:has(.lesson-hero--vector)        { --lesson-accent: var(--collection-vector); }
-body:has(.lesson-hero--raster)        { --lesson-accent: var(--collection-raster); }
-body:has(.lesson-hero--future)        { --lesson-accent: var(--collection-future); }
+body:has(.lesson-hero--thinking) { --lesson-accent: var(--collection-thinking); --lesson-accent-ink: var(--collection-thinking-ink); }
+body:has(.lesson-hero--workspace) { --lesson-accent: var(--collection-workspace); --lesson-accent-ink: var(--collection-workspace-ink); }
+body:has(.lesson-hero--data) { --lesson-accent: var(--collection-data); --lesson-accent-ink: var(--collection-data-ink); }
+body:has(.lesson-hero--tables) { --lesson-accent: var(--collection-tables); --lesson-accent-ink: var(--collection-tables-ink); }
+body:has(.lesson-hero--cartography) { --lesson-accent: var(--collection-cartography); --lesson-accent-ink: var(--collection-cartography-ink); }
+body:has(.lesson-hero--relationships) { --lesson-accent: var(--collection-relationships); --lesson-accent-ink: var(--collection-relationships-ink); }
+body:has(.lesson-hero--vector) { --lesson-accent: var(--collection-vector); --lesson-accent-ink: var(--collection-vector-ink); }
+body:has(.lesson-hero--raster) { --lesson-accent: var(--collection-raster); --lesson-accent-ink: var(--collection-raster-ink); }
+body:has(.lesson-hero--future) { --lesson-accent: var(--collection-future); --lesson-accent-ink: var(--collection-future-ink); }
 
 body:has(.lesson-hero) .md-content__inner {
   max-width: 58rem;
@@ -1677,19 +1709,19 @@ body:has(.lesson-hero) .md-typeset > h1 {
   transform: translateY(-6px);
 }
 
-.md-typeset .collection-card--thinking      { --collection: var(--collection-thinking); }
-.md-typeset .collection-card--workspace     { --collection: var(--collection-workspace); }
-.md-typeset .collection-card--data          { --collection: var(--collection-data); }
-.md-typeset .collection-card--tables        { --collection: var(--collection-tables); }
-.md-typeset .collection-card--cartography   { --collection: var(--collection-cartography); }
-.md-typeset .collection-card--relationships { --collection: var(--collection-relationships); }
-.md-typeset .collection-card--vector        { --collection: var(--collection-vector); }
-.md-typeset .collection-card--raster        { --collection: var(--collection-raster); }
-.md-typeset .collection-card--future        { --collection: var(--collection-future); }
+.md-typeset .collection-card--thinking { --collection: var(--collection-thinking); --collection-ink: var(--collection-thinking-ink); }
+.md-typeset .collection-card--workspace { --collection: var(--collection-workspace); --collection-ink: var(--collection-workspace-ink); }
+.md-typeset .collection-card--data { --collection: var(--collection-data); --collection-ink: var(--collection-data-ink); }
+.md-typeset .collection-card--tables { --collection: var(--collection-tables); --collection-ink: var(--collection-tables-ink); }
+.md-typeset .collection-card--cartography { --collection: var(--collection-cartography); --collection-ink: var(--collection-cartography-ink); }
+.md-typeset .collection-card--relationships { --collection: var(--collection-relationships); --collection-ink: var(--collection-relationships-ink); }
+.md-typeset .collection-card--vector { --collection: var(--collection-vector); --collection-ink: var(--collection-vector-ink); }
+.md-typeset .collection-card--raster { --collection: var(--collection-raster); --collection-ink: var(--collection-raster-ink); }
+.md-typeset .collection-card--future { --collection: var(--collection-future); --collection-ink: var(--collection-future-ink); }
 
 .md-typeset .collection-number {
   margin: 1.45rem 0 0;
-  color: var(--collection);
+  color: var(--collection-ink, var(--collection));
   font-family: var(--md-code-font-family);
   font-size: 0.58rem;
   font-weight: 600;
@@ -1834,11 +1866,11 @@ body:has(.lesson-hero) .md-typeset > h1 {
 .md-typeset .lesson-link-list a::after {
   content: "↗";
   flex: 0 0 auto;
-  color: var(--collection);
+  color: var(--collection-ink, var(--collection));
 }
 
 .md-typeset .lesson-link-list a:hover {
-  color: var(--collection);
+  color: var(--collection-ink, var(--collection));
 }
 
 .md-typeset .lesson-link-list a span {
@@ -1846,7 +1878,7 @@ body:has(.lesson-hero) .md-typeset > h1 {
   padding: 0.08rem 0.36rem;
   border-radius: 999px;
   background: color-mix(in srgb, var(--collection) 13%, transparent);
-  color: var(--collection);
+  color: var(--collection-ink, var(--collection));
   font-family: var(--md-code-font-family);
   font-size: 0.45rem;
   letter-spacing: 0.08em;
@@ -2105,7 +2137,7 @@ body:has(.lesson-hero) .md-typeset > h1 {
 
 .md-typeset .resource-dock span {
   grid-row: 1 / span 2;
-  color: var(--lesson-accent);
+  color: var(--lesson-accent-ink, var(--lesson-accent));
   font-family: var(--md-code-font-family);
   font-size: 0.5rem;
 }
@@ -2124,15 +2156,15 @@ body:has(.lesson-hero) .md-typeset > h1 {
 
 /* The dock travels onto the slide and lab pages a lesson owns, where there
    is no hero to set the accent, so each copy carries its collection's. */
-.resource-dock--thinking      { --lesson-accent: var(--collection-thinking); }
-.resource-dock--workspace     { --lesson-accent: var(--collection-workspace); }
-.resource-dock--data          { --lesson-accent: var(--collection-data); }
-.resource-dock--tables        { --lesson-accent: var(--collection-tables); }
-.resource-dock--cartography   { --lesson-accent: var(--collection-cartography); }
-.resource-dock--relationships { --lesson-accent: var(--collection-relationships); }
-.resource-dock--vector        { --lesson-accent: var(--collection-vector); }
-.resource-dock--raster        { --lesson-accent: var(--collection-raster); }
-.resource-dock--future        { --lesson-accent: var(--collection-future); }
+.resource-dock--thinking { --lesson-accent: var(--collection-thinking); --lesson-accent-ink: var(--collection-thinking-ink); }
+.resource-dock--workspace { --lesson-accent: var(--collection-workspace); --lesson-accent-ink: var(--collection-workspace-ink); }
+.resource-dock--data { --lesson-accent: var(--collection-data); --lesson-accent-ink: var(--collection-data-ink); }
+.resource-dock--tables { --lesson-accent: var(--collection-tables); --lesson-accent-ink: var(--collection-tables-ink); }
+.resource-dock--cartography { --lesson-accent: var(--collection-cartography); --lesson-accent-ink: var(--collection-cartography-ink); }
+.resource-dock--relationships { --lesson-accent: var(--collection-relationships); --lesson-accent-ink: var(--collection-relationships-ink); }
+.resource-dock--vector { --lesson-accent: var(--collection-vector); --lesson-accent-ink: var(--collection-vector-ink); }
+.resource-dock--raster { --lesson-accent: var(--collection-raster); --lesson-accent-ink: var(--collection-raster-ink); }
+.resource-dock--future { --lesson-accent: var(--collection-future); --lesson-accent-ink: var(--collection-future-ink); }
 
 .md-typeset .resource-dock--travelling {
   margin: 0 0 3rem;
@@ -2161,7 +2193,7 @@ body:has(.lesson-hero) .md-typeset > h1 {
 }
 
 .md-typeset .resource-dock a[aria-current="page"] strong {
-  color: var(--lesson-accent);
+  color: var(--lesson-accent-ink, var(--lesson-accent));
 }
 
 /* A link that leaves the site opens in a new tab, and says so. Cards and
@@ -2255,7 +2287,7 @@ body:has(.lesson-hero) .md-typeset > h2::before {
 }
 
 .md-typeset .direction-comparison h4 { font-size: 1.1rem; }
-.md-typeset .mistake-grid h3 { color: var(--lesson-accent); font: 600 0.59rem/1.4 var(--md-code-font-family); letter-spacing: 0.08em; text-transform: uppercase; }
+.md-typeset .mistake-grid h3 { color: var(--lesson-accent-ink, var(--lesson-accent)); font: 600 0.59rem/1.4 var(--md-code-font-family); letter-spacing: 0.08em; text-transform: uppercase; }
 .md-typeset .direction-comparison p,
 .md-typeset .mistake-grid p { margin-bottom: 0; color: var(--ink-2); font-size: 0.68rem; }
 
@@ -2295,7 +2327,7 @@ body:has(.lesson-hero) .md-typeset > h2::before {
 }
 
 .md-typeset .reading-card span {
-  color: var(--lesson-accent);
+  color: var(--lesson-accent-ink, var(--lesson-accent));
   font-family: var(--md-code-font-family);
   font-size: 0.5rem;
   letter-spacing: 0.1em;
@@ -2344,7 +2376,7 @@ body:has(.lesson-hero) .md-typeset > h2::before {
 
 .md-typeset .lesson-next a span { color: var(--ink-3); font-size: 0.55rem; }
 .md-typeset .lesson-next a strong { color: var(--ink); font-family: var(--serif); font-size: 1.1rem; font-weight: 500; }
-.md-typeset .lesson-next a:hover strong { color: var(--lesson-accent); }
+.md-typeset .lesson-next a:hover strong { color: var(--lesson-accent-ink, var(--lesson-accent)); }
 
 /* ---------- Responsive and accessible motion ---------- */
 
@@ -2524,7 +2556,7 @@ body:has(.lesson-hero) .md-typeset > h2::before {
   font-size: 0.52rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--lesson-accent);
+  color: var(--lesson-accent-ink, var(--lesson-accent));
 }
 .md-typeset .lab-card strong {
   display: block;
@@ -2572,7 +2604,7 @@ body:has(.lesson-hero) .md-typeset > h2::before {
   font-size: 0.52rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--lesson-accent);
+  color: var(--lesson-accent-ink, var(--lesson-accent));
 }
 .md-typeset .deck-card strong {
   display: block;
