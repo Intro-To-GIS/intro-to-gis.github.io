@@ -2870,3 +2870,326 @@ body:has(.lesson-hero) .md-typeset > h2::before {
   fill: var(--night-muted);
   font: 400 15px var(--md-text-font-family);
 }
+
+/* ------------------------------------------------------------------ *
+   LESSON 03 DEMO — AND NARROWS, OR WIDENS
+   Eight rows, four queries, and the count changing underneath them.
+ * ------------------------------------------------------------------ */
+
+.q-head text {
+  fill: var(--lesson-accent);
+  font: 500 12px var(--md-code-font-family);
+  letter-spacing: 0.14em;
+}
+.q-num { text-anchor: end; }
+
+.q-row rect {
+  fill: rgba(255, 255, 255, 0.035);
+  stroke: transparent;
+  stroke-width: 1.5;
+  transition: fill 240ms ease, stroke 240ms ease;
+}
+.q-row text {
+  fill: var(--night-muted);
+  font: 400 16px var(--md-code-font-family);
+  transition: fill 240ms ease;
+}
+.q-null { font-style: italic; opacity: 0.75; }
+
+.spatial-demo[data-mode="single"] .is-single rect,
+.spatial-demo[data-mode="and"] .is-and rect,
+.spatial-demo[data-mode="or"] .is-or rect,
+.spatial-demo[data-mode="null"] .is-null rect {
+  fill: color-mix(in srgb, var(--lesson-accent) 34%, transparent);
+  stroke: color-mix(in srgb, var(--lesson-accent) 72%, transparent);
+}
+.spatial-demo[data-mode="single"] .is-single text,
+.spatial-demo[data-mode="and"] .is-and text,
+.spatial-demo[data-mode="or"] .is-or text,
+.spatial-demo[data-mode="null"] .is-null text { fill: var(--hero-paper); }
+
+.q-sql__text,
+.q-count { opacity: 0; transition: opacity 240ms ease; }
+.q-sql__text {
+  fill: var(--hero-paper);
+  font: 400 16px var(--md-code-font-family);
+}
+.q-count {
+  fill: var(--lesson-accent);
+  font: 500 16px var(--md-code-font-family);
+  text-anchor: end;
+}
+.spatial-demo[data-mode="single"] .q-sql--single,
+.spatial-demo[data-mode="and"] .q-sql--and,
+.spatial-demo[data-mode="or"] .q-sql--or,
+.spatial-demo[data-mode="null"] .q-sql--null { opacity: 1; }
+
+/* ------------------------------------------------------------------ *
+   LESSON 03c DEMO — A FIELD TYPE IS A DECISION
+   One table of four counties, shown under three type choices. The
+   values that change are the whole argument.
+ * ------------------------------------------------------------------ */
+
+.td-head text {
+  fill: var(--lesson-accent);
+  font: 500 12px var(--md-code-font-family);
+  letter-spacing: 0.14em;
+}
+.td-end { text-anchor: end; }
+.td-rule { stroke: var(--night-line); stroke-width: 1.5; }
+
+.td-type text {
+  fill: var(--night-muted);
+  font: 400 13px var(--md-text-font-family);
+  transition: opacity 240ms ease;
+}
+.td-t-fips-b,
+.td-t-den-b { opacity: 0; fill: #d79ac4; }
+.spatial-demo[data-mode="intid"] .td-t-fips-a,
+.spatial-demo[data-mode="intrate"] .td-t-den-a { opacity: 0; }
+.spatial-demo[data-mode="intid"] .td-t-fips-b,
+.spatial-demo[data-mode="intrate"] .td-t-den-b { opacity: 1; }
+
+.td-row rect {
+  fill: rgba(255, 255, 255, 0.035);
+}
+.td-row text {
+  fill: var(--hero-paper);
+  font: 400 18px var(--md-code-font-family);
+}
+
+.td-fips,
+.td-den { transition: opacity 240ms ease; }
+.td-fips--int,
+.td-den--int { opacity: 0; }
+.td-row text.td-damaged { fill: #d79ac4; }
+
+.spatial-demo[data-mode="intid"] .td-fips--text,
+.spatial-demo[data-mode="intrate"] .td-den--dbl { opacity: 0; }
+.spatial-demo[data-mode="intid"] .td-fips--int,
+.spatial-demo[data-mode="intrate"] .td-den--int { opacity: 1; }
+
+.td-verdict text { transition: opacity 240ms ease; }
+.td-verdict__ok,
+.td-verdict__bad {
+  font: 500 17px var(--md-text-font-family);
+  opacity: 0;
+}
+.td-verdict__ok { fill: var(--hero-paper); }
+.td-verdict__bad { fill: #d79ac4; }
+.td-verdict__note {
+  fill: var(--night-muted);
+  font: 400 14px var(--md-text-font-family);
+}
+.spatial-demo[data-mode="text"] .td-v--a,
+.spatial-demo[data-mode="intid"] .td-v--b,
+.spatial-demo[data-mode="intrate"] .td-v--c { opacity: 1; }
+
+/* ------------------------------------------------------------------ *
+   LESSON 04 DEMO — CLASSIFICATION IS THE ARGUMENT
+   Eight counties above, the distribution below, and three methods
+   cutting it in three different places.
+ * ------------------------------------------------------------------ */
+
+.cls-unit rect {
+  stroke: color-mix(in srgb, var(--lesson-accent) 40%, transparent);
+  stroke-width: 1.5;
+  fill: color-mix(in srgb, var(--lesson-accent) 12%, transparent);
+  transition: fill 300ms ease;
+}
+.cls-unit text {
+  fill: var(--hero-paper);
+  font: 400 24px var(--md-code-font-family);
+  text-anchor: middle;
+}
+
+.spatial-demo[data-mode="equal"] .eq-1 rect,
+.spatial-demo[data-mode="quantile"] .qt-1 rect,
+.spatial-demo[data-mode="jenks"] .nb-1 rect {
+  fill: color-mix(in srgb, var(--lesson-accent) 10%, transparent);
+}
+.spatial-demo[data-mode="equal"] .eq-2 rect,
+.spatial-demo[data-mode="quantile"] .qt-2 rect,
+.spatial-demo[data-mode="jenks"] .nb-2 rect {
+  fill: color-mix(in srgb, var(--lesson-accent) 34%, transparent);
+}
+.spatial-demo[data-mode="equal"] .eq-3 rect,
+.spatial-demo[data-mode="quantile"] .qt-3 rect,
+.spatial-demo[data-mode="jenks"] .nb-3 rect {
+  fill: color-mix(in srgb, var(--lesson-accent) 62%, transparent);
+}
+.spatial-demo[data-mode="equal"] .eq-4 rect,
+.spatial-demo[data-mode="quantile"] .qt-4 rect,
+.spatial-demo[data-mode="jenks"] .nb-4 rect {
+  fill: color-mix(in srgb, var(--lesson-accent) 92%, transparent);
+}
+
+.cls-axis { stroke: var(--night-line); stroke-width: 1.5; }
+.cls-axis__caption {
+  fill: var(--night-muted);
+  font: 400 14px var(--md-text-font-family);
+}
+.cls-ticks path { stroke: var(--hero-paper); stroke-width: 2.5; opacity: 0.8; }
+.cls-ticks text {
+  fill: var(--night-muted);
+  font: 400 13px var(--md-code-font-family);
+  text-anchor: middle;
+}
+
+.cls-breaks { opacity: 0; transition: opacity 280ms ease; }
+.cls-breaks path {
+  stroke: var(--lesson-accent);
+  stroke-width: 2.5;
+  stroke-dasharray: 6 5;
+}
+.cls-breaks text {
+  fill: var(--lesson-accent);
+  font: 500 15px var(--md-code-font-family);
+  text-anchor: middle;
+}
+.spatial-demo[data-mode="equal"] .cls-breaks--equal,
+.spatial-demo[data-mode="quantile"] .cls-breaks--quantile,
+.spatial-demo[data-mode="jenks"] .cls-breaks--jenks { opacity: 1; }
+
+.cls-verdict text {
+  fill: var(--hero-paper);
+  font: 500 16px var(--md-text-font-family);
+  opacity: 0;
+  transition: opacity 280ms ease;
+}
+.spatial-demo[data-mode="equal"] .cls-v--equal,
+.spatial-demo[data-mode="quantile"] .cls-v--quantile,
+.spatial-demo[data-mode="jenks"] .cls-v--jenks { opacity: 1; }
+
+/* ------------------------------------------------------------------ *
+   LESSON 03d DEMO — DID EVERY FEATURE GET A VALUE?
+   A layer, a spreadsheet, and the lines between them under three
+   conditions: matched, type clash, and the dangerous partial.
+ * ------------------------------------------------------------------ */
+
+.tj-head {
+  fill: var(--hero-paper);
+  font: 500 16px var(--md-text-font-family);
+}
+.tj-head--right,
+.tj-type--right { text-anchor: end; }
+.tj-type {
+  fill: var(--night-muted);
+  font: 400 13px var(--md-code-font-family);
+  transition: opacity 240ms ease;
+}
+.tj-type--b { opacity: 0; }
+.tj-type--warn { fill: #c79ad8; }
+.spatial-demo[data-mode="types"] .tj-type--a { opacity: 0; }
+.spatial-demo[data-mode="types"] .tj-type--b { opacity: 1; }
+
+.tj-left,
+.tj-right {
+  fill: rgba(255, 255, 255, 0.04);
+  stroke: var(--night-line);
+  stroke-width: 1.5;
+}
+.tj-right { fill: rgba(255, 255, 255, 0.055); }
+.tj-row text {
+  fill: var(--hero-paper);
+  font: 400 17px var(--md-code-font-family);
+}
+.tj-end { text-anchor: end; }
+.tj-rate { fill: var(--night-muted); }
+
+.tj-key,
+.tj-got,
+.tj-null { transition: opacity 240ms ease; }
+.tj-key--fips,
+.tj-key--alt,
+.tj-null { opacity: 0; }
+.tj-got { fill: var(--lesson-accent); }
+.tj-null { fill: #c79ad8; font-style: italic; }
+
+/* The key column switches to the code, and the two tables disagree. */
+.spatial-demo[data-mode="types"] .tj-key--name { opacity: 0; }
+.spatial-demo[data-mode="types"] .tj-key--fips { opacity: 1; }
+.spatial-demo[data-mode="partial"] .is-spelling .tj-right ~ .tj-key--name { opacity: 0; }
+.spatial-demo[data-mode="partial"] .tj-key--alt { opacity: 1; }
+
+/* Where no row matched, the joined column comes back empty. */
+.spatial-demo[data-mode="types"] .tj-got { opacity: 0; }
+.spatial-demo[data-mode="types"] .tj-null { opacity: 1; }
+.spatial-demo[data-mode="partial"] .is-spelling .tj-got { opacity: 0; }
+.spatial-demo[data-mode="partial"] .is-spelling .tj-null { opacity: 1; }
+
+.tj-link {
+  stroke: var(--lesson-accent);
+  stroke-width: 2.5;
+  transition: opacity 240ms ease;
+}
+.spatial-demo[data-mode="types"] .tj-link { opacity: 0; }
+.spatial-demo[data-mode="partial"] .tj-link--5,
+.spatial-demo[data-mode="partial"] .tj-link--6 { opacity: 0; }
+
+.tj-score {
+  font: 500 19px var(--md-code-font-family);
+  text-anchor: middle;
+  opacity: 0;
+  transition: opacity 240ms ease;
+  fill: var(--lesson-accent);
+}
+.tj-score--types,
+.tj-score--partial { fill: #c79ad8; }
+.spatial-demo[data-mode="names"] .tj-score--names,
+.spatial-demo[data-mode="types"] .tj-score--types,
+.spatial-demo[data-mode="partial"] .tj-score--partial { opacity: 1; }
+
+/* ------------------------------------------------------------------ *
+   LESSON 03b DEMO — WHAT DOES "AFFECTED" MEAN?
+   One floodplain, fourteen parcels, three relationships and three
+   defensible counts.
+ * ------------------------------------------------------------------ */
+
+.loc-flood {
+  fill: color-mix(in srgb, var(--lesson-accent) 22%, transparent);
+  stroke: color-mix(in srgb, var(--lesson-accent) 70%, transparent);
+  stroke-width: 2.5;
+}
+.loc-label {
+  fill: var(--night-muted);
+  font: 400 15px var(--md-text-font-family);
+  text-anchor: middle;
+  letter-spacing: 0.08em;
+}
+
+.loc-buffer path {
+  fill: none;
+  stroke: var(--hero-paper);
+  stroke-width: 2.5;
+  stroke-dasharray: 9 7;
+}
+.loc-buffer { opacity: 0; transition: opacity 280ms ease; }
+.spatial-demo[data-mode="distance"] .loc-buffer { opacity: 1; }
+
+.loc-parcel {
+  fill: rgba(255, 255, 255, 0.07);
+  stroke: var(--night-line);
+  stroke-width: 1.5;
+  transition: fill 260ms ease, stroke 260ms ease;
+}
+.spatial-demo[data-mode="intersect"] .is-int,
+.spatial-demo[data-mode="within"] .is-win,
+.spatial-demo[data-mode="distance"] .is-dist {
+  fill: var(--hero-paper);
+  stroke: var(--hero-paper);
+}
+
+.loc-score__n {
+  fill: var(--lesson-accent);
+  font: 500 34px var(--md-code-font-family);
+  opacity: 0;
+  transition: opacity 240ms ease;
+}
+.loc-score__of {
+  fill: var(--night-muted);
+  font: 400 15px var(--md-text-font-family);
+}
+.spatial-demo[data-mode="intersect"] .loc-s--intersect,
+.spatial-demo[data-mode="within"] .loc-s--within,
+.spatial-demo[data-mode="distance"] .loc-s--distance { opacity: 1; }
