@@ -1692,7 +1692,7 @@ body:has(.lesson-hero) .md-typeset > h1 {
   --collection: var(--ink);
   position: relative;
   display: flex;
-  min-height: 24rem;
+  min-height: 20rem;
   flex-direction: column;
   overflow: hidden;
   padding: 1.25rem;
@@ -1794,6 +1794,9 @@ body:has(.lesson-hero) .md-typeset > h1 {
 .md-typeset > p.lab-subtitle { max-width: 820px; }
 .md-typeset:has(.lab-widget) .page-head { margin-bottom: 1.8rem; }
 .md-typeset .collection-card h3 {
+  /* Titles run to two or three lines. Holding three lines' worth keeps
+     the rule and the lesson list on a shared line across every row. */
+  min-height: 3.09em;
   max-width: 12ch;
   margin: 0.5rem 0 0.7rem;
   color: var(--ink);
@@ -1808,41 +1811,90 @@ body:has(.lesson-hero) .md-typeset > h1 {
   font-size: 0.68rem;
 }
 
-.md-typeset .collection-signal {
-  position: relative;
-  width: 4.5rem;
-  height: 2.5rem;
+/* Each collection wears a miniature of its own demo rather than a
+   shared dingbat: the cluster from Introduction, the broken link from
+   Getting Started, the staircase from Raster. Colour alone cannot tell
+   nine collections apart — three of the colours are shared by two — so
+   the shape carries the identity and the colour confirms it. */
+.md-typeset .collection-mark {
+  display: block;
+  width: 7rem;
+  height: 3.38rem;
+  overflow: visible;
+  color: var(--collection);
 }
 
-.md-typeset .collection-signal::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100%;
-  border-top: 1px solid color-mix(in srgb, var(--collection) 55%, transparent);
-  transform: rotate(-9deg);
+.md-typeset .collection-mark .cm-fill { fill: currentColor; stroke: none; }
+.md-typeset .collection-mark .cm-ghost {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  opacity: 0.32;
 }
-
-.md-typeset .collection-signal i {
-  position: absolute;
-  width: 0.58rem;
-  height: 0.58rem;
-  border: 2px solid var(--collection);
-  border-radius: 50%;
-  background: var(--surface);
-  transition: transform 260ms ease;
+.md-typeset .collection-mark .cm-line {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  opacity: 0.62;
 }
+.md-typeset .collection-mark .cm-stroke {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+}
+.md-typeset .collection-mark .cm-dash {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-dasharray: 5 4;
+  opacity: 0.75;
+}
+.md-typeset .collection-mark .cm-grid {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  opacity: 0.3;
+}
+.md-typeset .collection-mark .cm-wash {
+  fill: color-mix(in srgb, currentColor 22%, transparent);
+  stroke: currentColor;
+  stroke-width: 2.4;
+}
+.md-typeset .collection-mark .cm-dot { fill: var(--surface); stroke: currentColor; stroke-width: 2; }
+.md-typeset .collection-mark .cm-truth {
+  fill: none;
+  stroke: var(--surface);
+  stroke-width: 2.6;
+  stroke-linejoin: round;
+}
+.md-typeset .collection-mark .cm-tick {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+}
+.md-typeset .collection-mark .cm-step { fill: currentColor; stroke: none; }
+.md-typeset .collection-mark .cm-s1 { opacity: 0.16; }
+.md-typeset .collection-mark .cm-s2 { opacity: 0.34; }
+.md-typeset .collection-mark .cm-s3 { opacity: 0.54; }
+.md-typeset .collection-mark .cm-s4 { opacity: 0.76; }
+.md-typeset .collection-mark .cm-s5 { opacity: 1; }
 
-.md-typeset .collection-signal i:nth-child(1) { top: 1.2rem; left: 0; }
-.md-typeset .collection-signal i:nth-child(2) { top: 0.5rem; left: 1.9rem; }
-.md-typeset .collection-signal i:nth-child(3) { top: 0.85rem; right: 0; }
-.md-typeset .collection-card:hover .collection-signal i:nth-child(1) { transform: translate(-2px, 4px); }
-.md-typeset .collection-card:hover .collection-signal i:nth-child(2) { transform: translateY(-5px); }
-.md-typeset .collection-card:hover .collection-signal i:nth-child(3) { transform: translate(3px, 2px); }
+/* One element in each mark is the one the demo turns on. */
+.md-typeset .collection-mark .cm-move {
+  transition: transform 300ms cubic-bezier(.2,.8,.2,1), opacity 300ms ease;
+  transform-origin: center;
+}
+.md-typeset .collection-card:hover .cm-move { transform: scale(1.06); }
+.md-typeset .collection-card:hover .collection-mark .cm-ghost { opacity: 0.18; }
 
+/* The lesson list follows the description instead of being pushed to the
+   foot of the card. With it pinned down, a collection holding one lesson
+   opened a hole in the middle of the card; now the slack collects at the
+   bottom, above the keyword line, where it reads as padding. */
 .md-typeset .lesson-link-list {
-  margin: auto 0 0;
+  margin: 1.3rem 0 0;
   padding: 1.2rem 0 0;
   list-style: none;
   border-top: 1px solid var(--line);
@@ -1885,8 +1937,10 @@ body:has(.lesson-hero) .md-typeset > h1 {
   text-transform: uppercase;
 }
 
+/* Pinned to the foot, so all three cards in a row share a baseline. */
 .md-typeset .collection-topics {
-  margin: 0.8rem 0 0;
+  margin: auto 0 0;
+  padding-top: 0.9rem;
   color: var(--ink-3);
   font-size: 0.53rem;
   line-height: 1.5;
@@ -2472,7 +2526,7 @@ body:has(.lesson-hero) .md-typeset > h2::before {
   .md-typeset .collection-card,
   .md-typeset .portal-card,
   .md-typeset .atlas-button,
-  .md-typeset .collection-signal i,
+  .md-typeset .collection-mark .cm-move,
   .md-typeset .reading-card {
     transition: none;
   }

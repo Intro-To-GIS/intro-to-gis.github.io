@@ -69,7 +69,12 @@ hide:
   </header>
   <div class="collection-grid">
     <article class="collection-card collection-card--thinking" data-collection data-keywords="history applications maps ethics power gis geographic information science">
-      <div class="collection-signal" aria-hidden="true"><i></i><i></i><i></i></div>
+      <svg class="collection-mark" viewBox="0 0 112 54" aria-hidden="true">
+      <rect class="cm-ghost" x="62" y="4" width="18" height="18" rx="3"/><rect class="cm-ghost" x="86" y="4" width="18" height="18" rx="3"/>
+      <rect class="cm-ghost" x="62" y="28" width="18" height="18" rx="3"/><rect class="cm-ghost" x="86" y="28" width="18" height="18" rx="3"/>
+      <rect class="cm-fill cm-move" x="8" y="4" width="18" height="18" rx="3"/><rect class="cm-fill cm-move" x="32" y="4" width="18" height="18" rx="3"/>
+      <rect class="cm-fill cm-move" x="8" y="28" width="18" height="18" rx="3"/><rect class="cm-fill cm-move" x="32" y="28" width="18" height="18" rx="3"/>
+      </svg>
       <p class="collection-number">01</p>
       <h3>GIS as a Way of Seeing</h3>
       <p>Discover how location changes a question—and how maps shape the answers we accept.</p>
@@ -80,7 +85,14 @@ hide:
     </article>
 
     <article class="collection-card collection-card--workspace" data-collection data-keywords="software installation interface arcgis pro project map geodatabase layers files troubleshooting">
-      <div class="collection-signal" aria-hidden="true"><i></i><i></i><i></i></div>
+      <svg class="collection-mark" viewBox="0 0 112 54" aria-hidden="true">
+      <rect class="cm-line" x="2" y="10" width="36" height="34" rx="5"/>
+      <path class="cm-line" d="M2,20 H38"/>
+      <rect class="cm-line" x="74" y="10" width="36" height="34" rx="5"/>
+      <path class="cm-line" d="M74,20 H110"/>
+      <path class="cm-stroke cm-move" d="M44,27 H66"/>
+      <path class="cm-fill cm-move" d="M64,23 L71,27 L64,31 Z"/>
+      </svg>
       <p class="collection-number">02</p>
       <h3>The ArcGIS Pro Workspace</h3>
       <p>Build a clean project and understand the interface, files, layers, and containers around your work.</p>
@@ -92,7 +104,11 @@ hide:
     </article>
 
     <article class="collection-card collection-card--data" data-collection data-keywords="vector raster data types sources acquisition coordinate systems projections add data">
-      <div class="collection-signal" aria-hidden="true"><i></i><i></i><i></i></div>
+      <svg class="collection-mark" viewBox="0 0 112 54" aria-hidden="true">
+      <path class="cm-grid" d="M30,2 V52 M58,2 V52 M86,2 V52 M4,18 H108 M4,36 H108"/>
+      <ellipse class="cm-wash cm-move" cx="56" cy="27" rx="26" ry="16"/>
+      <circle class="cm-dot" cx="56" cy="27" r="3"/>
+      </svg>
       <p class="collection-number">03</p>
       <h3>Spatial Data &amp; Reference Systems</h3>
       <p>Learn what your layers are, where they come from, and how coordinates place them correctly.</p>
@@ -113,7 +129,12 @@ hide:
   </header>
   <div class="collection-grid">
     <article class="collection-card collection-card--tables" data-collection data-keywords="attribute table fields csv calculate field query select attributes tabular data">
-      <div class="collection-signal" aria-hidden="true"><i></i><i></i><i></i></div>
+      <svg class="collection-mark" viewBox="0 0 112 54" aria-hidden="true">
+      <rect class="cm-fill cm-move" x="2" y="2" width="108" height="10" rx="3"/>
+      <rect class="cm-ghost" x="2" y="16" width="108" height="10" rx="3"/>
+      <rect class="cm-fill cm-move" x="2" y="30" width="108" height="10" rx="3"/>
+      <rect class="cm-ghost" x="2" y="44" width="108" height="10" rx="3"/>
+      </svg>
       <p class="collection-number">04</p>
       <h3>Tables &amp; Attribute Intelligence</h3>
       <p>Turn rows and fields into questions, selections, and defensible new information.</p>
@@ -125,7 +146,14 @@ hide:
     </article>
 
     <article class="collection-card collection-card--cartography" data-collection data-keywords="cartography symbology classification map design layout export legend labels communication">
-      <div class="collection-signal" aria-hidden="true"><i></i><i></i><i></i></div>
+      <svg class="collection-mark" viewBox="0 0 112 54" aria-hidden="true">
+      <rect class="cm-step cm-s1" x="2" y="16" width="20" height="36" rx="3"/>
+      <rect class="cm-step cm-s2" x="25" y="16" width="20" height="36" rx="3"/>
+      <rect class="cm-step cm-s3" x="48" y="16" width="20" height="36" rx="3"/>
+      <rect class="cm-step cm-s4" x="71" y="16" width="20" height="36" rx="3"/>
+      <rect class="cm-step cm-s5" x="94" y="16" width="16" height="36" rx="3"/>
+      <path class="cm-tick cm-move" d="M46,2 V12 M92,2 V12"/>
+      </svg>
       <p class="collection-number">05</p>
       <h3>Cartographic Design</h3>
       <p>Shape hierarchy, classification, color, and layout into maps people can understand.</p>
@@ -136,7 +164,15 @@ hide:
     </article>
 
     <article class="collection-card collection-card--relationships" data-collection data-keywords="table join spatial join select by location relationship proximity intersect closest">
-      <div class="collection-signal" aria-hidden="true"><i></i><i></i><i></i></div>
+      <svg class="collection-mark" viewBox="0 0 112 54" aria-hidden="true">
+      <rect class="cm-line" x="2" y="2" width="30" height="13" rx="3"/>
+      <rect class="cm-line" x="2" y="20" width="30" height="13" rx="3"/>
+      <rect class="cm-line" x="2" y="38" width="30" height="13" rx="3"/>
+      <rect class="cm-line" x="80" y="2" width="30" height="13" rx="3"/>
+      <rect class="cm-line" x="80" y="20" width="30" height="13" rx="3"/>
+      <rect class="cm-dash" x="80" y="38" width="30" height="13" rx="3"/>
+      <path class="cm-stroke cm-move" d="M36,9 H76 M36,27 H76"/>
+      </svg>
       <p class="collection-number">06</p>
       <h3>Spatial Relationships &amp; Joins</h3>
       <p>Connect records by a shared key—or connect features because of where they are.</p>
@@ -158,7 +194,12 @@ hide:
   </header>
   <div class="collection-grid">
     <article class="collection-card collection-card--vector" data-collection data-keywords="vector geoprocessing buffer clip dissolve overlay union intersect analysis">
-      <div class="collection-signal" aria-hidden="true"><i></i><i></i><i></i></div>
+      <svg class="collection-mark" viewBox="0 0 112 54" aria-hidden="true">
+      <rect class="cm-dash cm-move" x="6" y="8" width="100" height="38" rx="14"/>
+      <rect class="cm-fill" x="20" y="16" width="22" height="22" rx="2"/>
+      <rect class="cm-fill" x="45" y="16" width="22" height="22" rx="2"/>
+      <rect class="cm-fill" x="70" y="16" width="22" height="22" rx="2"/>
+      </svg>
       <p class="collection-number">07</p>
       <h3>Vector Geoprocessing</h3>
       <p>Transform boundaries and features to answer questions about reach, overlap, and extent.</p>
@@ -169,7 +210,13 @@ hide:
     </article>
 
     <article class="collection-card collection-card--raster" data-collection data-keywords="raster surface slope aspect hillshade map algebra suitability modeling weighted overlay">
-      <div class="collection-signal" aria-hidden="true"><i></i><i></i><i></i></div>
+      <svg class="collection-mark" viewBox="0 0 112 54" aria-hidden="true">
+      <rect class="cm-fill cm-move" x="2" y="36" width="26" height="16" rx="2"/>
+      <rect class="cm-fill cm-move" x="30" y="28" width="26" height="24" rx="2"/>
+      <rect class="cm-fill cm-move" x="58" y="18" width="26" height="34" rx="2"/>
+      <rect class="cm-fill cm-move" x="86" y="8" width="24" height="44" rx="2"/>
+      <path class="cm-truth" d="M2,42 L28,34 L56,24 L84,13 L110,5"/>
+      </svg>
       <p class="collection-number">08</p>
       <h3>Raster &amp; Suitability Modeling</h3>
       <p>Read continuous surfaces, combine criteria, and make the assumptions in a model visible.</p>
@@ -180,7 +227,13 @@ hide:
     </article>
 
     <article class="collection-card collection-card--future" data-collection data-keywords="python arcpy programming automation future gis geospatial code workflow">
-      <div class="collection-signal" aria-hidden="true"><i></i><i></i><i></i></div>
+      <svg class="collection-mark" viewBox="0 0 112 54" aria-hidden="true">
+      <rect class="cm-line" x="2" y="3" width="56" height="12" rx="3"/>
+      <rect class="cm-line" x="2" y="21" width="56" height="12" rx="3"/>
+      <rect class="cm-line" x="2" y="39" width="56" height="12" rx="3"/>
+      <path class="cm-stroke cm-move" d="M66,9 C94,9 94,45 70,45"/>
+      <path class="cm-fill cm-move" d="M76,41 L68,45 L76,49 Z"/>
+      </svg>
       <p class="collection-number">09</p>
       <h3>Automation &amp; GIS Futures</h3>
       <p>Scale a repeated workflow with code and consider where geospatial practice is moving next.</p>
