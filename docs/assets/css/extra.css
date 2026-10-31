@@ -2540,3 +2540,333 @@ body:has(.lesson-hero) .md-typeset > h2::before {
   opacity: 0.45;
 }
 .md-typeset .resource-dock .dock-empty strong { color: var(--ink-3); }
+
+/* ------------------------------------------------------------------ *
+   DECK CARDS
+   Some lessons carry several slide decks. They share the lab card's
+   shape so the two sections read as the same kind of door.
+ * ------------------------------------------------------------------ */
+
+.md-typeset .deck-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 0.8rem;
+  margin: 1.4rem 0 2rem;
+}
+.md-typeset .deck-card {
+  display: block;
+  padding: 1rem 1.1rem 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: 0.6rem;
+  background: var(--surface);
+  text-decoration: none;
+  transition: background 150ms ease, border-color 150ms ease;
+}
+.md-typeset .deck-card:hover {
+  background: color-mix(in srgb, var(--lesson-accent) 7%, var(--surface));
+  border-color: color-mix(in srgb, var(--lesson-accent) 45%, var(--line));
+}
+.md-typeset .deck-card span {
+  display: block;
+  font-family: var(--md-code-font-family);
+  font-size: 0.52rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--lesson-accent);
+}
+.md-typeset .deck-card strong {
+  display: block;
+  margin: 0.35rem 0 0.2rem;
+  font-size: 0.86rem;
+  color: var(--ink);
+}
+.md-typeset .deck-card small { color: var(--ink-3); font-size: 0.68rem; line-height: 1.45; }
+
+/* ------------------------------------------------------------------ *
+   LESSON 00 DEMO — WHERE LOCATION DOES THE WORK
+   The same twelve values as a sorted list, as a map, and as a cluster.
+   Both halves stay on screen so the reader can see they are one dataset.
+ * ------------------------------------------------------------------ */
+
+.ways-table,
+.ways-grid,
+.ways-cluster { transition: opacity 280ms ease; }
+
+.ways-table { opacity: 0.2; }
+.spatial-demo[data-mode="table"] .ways-table { opacity: 1; }
+.spatial-demo[data-mode="table"] .ways-grid { opacity: 0.3; }
+
+.ways-table text {
+  fill: var(--hero-paper);
+  font: 400 17px var(--md-code-font-family);
+}
+.ways-table__head,
+.ways-table__note {
+  fill: var(--lesson-accent);
+  font: 500 11px var(--md-code-font-family) !important;
+  letter-spacing: 0.12em;
+}
+.ways-table__note { fill: var(--night-muted); letter-spacing: 0.04em; }
+
+.ways-cell rect {
+  fill: rgba(255, 255, 255, 0.045);
+  stroke: var(--night-line);
+  stroke-width: 1.5;
+  transition: fill 280ms ease, stroke 280ms ease;
+}
+.ways-cell text {
+  fill: var(--night-muted);
+  font: 500 19px var(--md-code-font-family);
+  text-anchor: middle;
+  transition: fill 280ms ease;
+}
+
+.spatial-demo[data-mode="map"] .ways-cell--low rect,
+.spatial-demo[data-mode="cluster"] .ways-cell--low rect {
+  fill: color-mix(in srgb, var(--lesson-accent) 72%, transparent);
+  stroke: var(--lesson-accent);
+}
+.spatial-demo[data-mode="map"] .ways-cell--mid rect,
+.spatial-demo[data-mode="cluster"] .ways-cell--mid rect {
+  fill: color-mix(in srgb, var(--lesson-accent) 30%, transparent);
+}
+.spatial-demo[data-mode="map"] .ways-cell--high rect,
+.spatial-demo[data-mode="cluster"] .ways-cell--high rect {
+  fill: color-mix(in srgb, var(--lesson-accent) 10%, transparent);
+}
+.spatial-demo[data-mode="map"] .ways-cell--low text,
+.spatial-demo[data-mode="cluster"] .ways-cell--low text { fill: var(--hero-paper); }
+
+.ways-cluster { opacity: 0; }
+.spatial-demo[data-mode="cluster"] .ways-cluster { opacity: 1; }
+.ways-ring {
+  fill: none;
+  stroke: var(--hero-paper);
+  stroke-width: 2.5;
+  stroke-dasharray: 10 8;
+}
+.ways-link path {
+  stroke: var(--hero-paper);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+}
+.ways-cluster__label {
+  fill: var(--hero-paper);
+  font: 500 17px var(--md-text-font-family);
+  text-anchor: middle;
+}
+
+/* ------------------------------------------------------------------ *
+   LESSON 01 DEMO — WHAT A PROJECT ACTUALLY STORES
+   A project file holding paths, the data on disk, and the arrows
+   between them breaking when the folder is renamed.
+ * ------------------------------------------------------------------ */
+
+.wk-card rect {
+  fill: rgba(255, 255, 255, 0.04);
+  stroke: var(--night-line);
+  stroke-width: 1.5;
+}
+.wk-card__title {
+  fill: var(--hero-paper);
+  font: 500 20px var(--md-code-font-family);
+}
+.wk-card__sub {
+  fill: var(--night-muted);
+  font: 400 14px var(--md-text-font-family);
+}
+.wk-divider { stroke: var(--night-line); stroke-width: 1.5; }
+.wk-note {
+  fill: var(--night-muted);
+  font: 400 15px var(--md-text-font-family);
+}
+
+.wk-row rect {
+  fill: color-mix(in srgb, var(--lesson-accent) 16%, transparent);
+  stroke: color-mix(in srgb, var(--lesson-accent) 55%, transparent);
+  stroke-width: 1.5;
+  transition: fill 260ms ease, stroke 260ms ease;
+}
+.wk-row text {
+  fill: var(--hero-paper);
+  font: 400 17px var(--md-code-font-family);
+}
+.wk-row--file rect {
+  fill: rgba(255, 255, 255, 0.06);
+  stroke: var(--night-line);
+}
+
+.wk-flag { font: 500 20px var(--md-text-font-family) !important; text-anchor: middle; }
+.wk-flag--ok { fill: var(--lesson-accent); }
+.wk-flag--bad { fill: #e0a05f; opacity: 0; }
+.spatial-demo[data-mode="broken"] .wk-flag--ok { opacity: 0; }
+.spatial-demo[data-mode="broken"] .wk-flag--bad { opacity: 1; }
+.spatial-demo[data-mode="broken"] .wk-row:not(.wk-row--file) rect {
+  fill: rgba(224, 160, 95, 0.12);
+  stroke: rgba(224, 160, 95, 0.6);
+  stroke-dasharray: 7 5;
+}
+
+/* The folder keeps its new name once renamed; only the link is repaired. */
+.wk-folder { transition: opacity 240ms ease; }
+.wk-folder--b { opacity: 0; }
+.spatial-demo[data-mode="broken"] .wk-folder--a,
+.spatial-demo[data-mode="repaired"] .wk-folder--a { opacity: 0; }
+.spatial-demo[data-mode="broken"] .wk-folder--b,
+.spatial-demo[data-mode="repaired"] .wk-folder--b { opacity: 1; }
+
+.wk-link { transition: opacity 240ms ease; }
+.wk-link path { stroke: var(--lesson-accent); stroke-width: 2.5; fill: none; }
+.wk-link--ok path:nth-child(even) { fill: var(--lesson-accent); stroke: none; }
+.wk-link--cut { opacity: 0; }
+.wk-link--cut path { stroke: rgba(224, 160, 95, 0.75); stroke-dasharray: 7 5; }
+.wk-cross {
+  fill: #e0a05f;
+  font: 500 24px var(--md-text-font-family);
+  text-anchor: middle;
+}
+.spatial-demo[data-mode="broken"] .wk-link--ok { opacity: 0; }
+.spatial-demo[data-mode="broken"] .wk-link--cut { opacity: 1; }
+
+/* ------------------------------------------------------------------ *
+   LESSON 02 DEMO — DEGREES ARE NOT DISTANCE
+   A graticule at 41°N. A one-degree buffer is a circle on screen and
+   an oval on the ground; a true 100 km buffer is the other way round.
+ * ------------------------------------------------------------------ */
+
+.crs-grid path { stroke: rgba(255, 255, 255, 0.1); stroke-width: 1; }
+.crs-grid__axis { stroke: rgba(255, 255, 255, 0.22) !important; }
+.crs-labels text {
+  fill: var(--night-muted);
+  font: 400 13px var(--md-code-font-family);
+}
+.crs-labels__foot {
+  text-anchor: middle;
+  letter-spacing: 0.04em;
+}
+
+.crs-shape { opacity: 0; transition: opacity 280ms ease; }
+.crs-shape circle,
+.crs-shape ellipse { fill: color-mix(in srgb, var(--lesson-accent) 18%, transparent); }
+
+.crs-shape--deg circle {
+  stroke: var(--lesson-accent);
+  stroke-width: 3;
+  stroke-dasharray: 9 7;
+}
+.crs-shape--km ellipse {
+  fill: color-mix(in srgb, var(--hero-paper) 12%, transparent);
+  stroke: var(--hero-paper);
+  stroke-width: 3;
+}
+
+.spatial-demo[data-mode="degrees"] .crs-shape--deg,
+.spatial-demo[data-mode="metres"] .crs-shape--km,
+.spatial-demo[data-mode="compare"] .crs-shape { opacity: 1; }
+
+.crs-city { fill: var(--hero-paper); }
+
+.crs-note { opacity: 0; transition: opacity 280ms ease; }
+.crs-note text {
+  fill: var(--hero-paper);
+  font: 500 16px var(--md-text-font-family);
+  text-anchor: middle;
+}
+.crs-note__side { text-anchor: start !important; }
+.crs-note--deg text { fill: var(--lesson-accent); }
+.spatial-demo[data-mode="degrees"] .crs-note--deg,
+.spatial-demo[data-mode="metres"] .crs-note--km { opacity: 1; }
+
+/* Side by side, the fill would hide the dashed circle inside it. */
+.spatial-demo[data-mode="compare"] .crs-shape--km ellipse { fill: none; }
+
+.crs-gap { opacity: 0; transition: opacity 280ms ease; }
+.crs-gap text {
+  fill: var(--hero-paper);
+  font: 400 15px var(--md-text-font-family);
+  text-anchor: start;
+}
+.crs-key { stroke-width: 3; }
+.crs-key--deg { stroke: var(--lesson-accent); stroke-dasharray: 9 7; }
+.crs-key--km { stroke: var(--hero-paper); }
+.spatial-demo[data-mode="compare"] .crs-gap { opacity: 1; }
+
+/* ------------------------------------------------------------------ *
+   LESSON 02b DEMO — A SHAPEFILE IS SEVERAL FILES
+   The components on the left, what you get on the right when one of
+   them is left behind.
+ * ------------------------------------------------------------------ */
+
+.sf-heading {
+  fill: var(--hero-paper);
+  font: 500 19px var(--md-code-font-family);
+}
+.sf-foot {
+  fill: var(--night-muted);
+  font: 400 14px var(--md-text-font-family);
+}
+.sf-divider { stroke: var(--night-line); stroke-width: 1.5; }
+
+.sf-chip rect {
+  fill: color-mix(in srgb, var(--lesson-accent) 18%, transparent);
+  stroke: color-mix(in srgb, var(--lesson-accent) 58%, transparent);
+  stroke-width: 1.5;
+  transition: fill 260ms ease, stroke 260ms ease;
+}
+.sf-chip__ext {
+  fill: var(--hero-paper);
+  font: 500 18px var(--md-code-font-family);
+}
+.sf-chip__role {
+  fill: var(--night-muted);
+  font: 400 15px var(--md-text-font-family);
+}
+.sf-chip { transition: opacity 260ms ease; }
+
+/* Whatever is not in the folder any more goes faint and dashed. */
+.spatial-demo[data-mode="fragment"] .sf-chip--shx,
+.spatial-demo[data-mode="fragment"] .sf-chip--dbf,
+.spatial-demo[data-mode="fragment"] .sf-chip--prj,
+.spatial-demo[data-mode="noprj"] .sf-chip--prj { opacity: 0.32; }
+.spatial-demo[data-mode="fragment"] .sf-chip--shx rect,
+.spatial-demo[data-mode="fragment"] .sf-chip--dbf rect,
+.spatial-demo[data-mode="fragment"] .sf-chip--prj rect,
+.spatial-demo[data-mode="noprj"] .sf-chip--prj rect {
+  fill: none;
+  stroke: var(--night-line);
+  stroke-dasharray: 7 5;
+}
+
+.sf-out { opacity: 0; transition: opacity 280ms ease; }
+.spatial-demo[data-mode="complete"] .sf-out--complete,
+.spatial-demo[data-mode="fragment"] .sf-out--fragment,
+.spatial-demo[data-mode="noprj"] .sf-out--noprj { opacity: 1; }
+
+.sf-parcels path {
+  fill: color-mix(in srgb, var(--lesson-accent) 34%, transparent);
+  stroke: var(--lesson-accent);
+  stroke-width: 2.5;
+}
+.sf-parcels--adrift path {
+  fill: none;
+  stroke-dasharray: 8 6;
+}
+
+.sf-void rect {
+  fill: rgba(255, 255, 255, 0.03);
+  stroke: var(--night-line);
+  stroke-width: 1.5;
+  stroke-dasharray: 8 6;
+}
+.sf-void path { stroke: var(--night-muted); stroke-width: 3; }
+
+.sf-out__title {
+  fill: var(--hero-paper);
+  font: 500 21px var(--md-text-font-family);
+}
+.sf-out__title--bad,
+.sf-out__title--warn { fill: #d8a46a; }
+.sf-out__line {
+  fill: var(--night-muted);
+  font: 400 15px var(--md-text-font-family);
+}

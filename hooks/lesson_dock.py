@@ -16,8 +16,10 @@ from urllib.parse import urlsplit
 
 # The dock as a lesson page writes it, and the doors inside it.
 DOCK_RE = re.compile(r'<nav class="resource-dock"[^>]*>(.*?)</nav>', re.S)
+# A door with no href is a door that leads nowhere in this lesson, such as
+# the Lab door on a lesson that has no lab. It travels in that state.
 DOOR_RE = re.compile(
-    r'<a\s+href="(?P<href>[^"]*)"[^>]*>\s*'
+    r'<a\s+(?:href="(?P<href>[^"]*)"\s*)?[^>]*>\s*'
     r'<span>(?P<num>[^<]*)</span>\s*'
     r'<strong>(?P<label>[^<]*)</strong>\s*'
     r'<small>(?P<note>[^<]*)</small>\s*</a>',
@@ -26,6 +28,7 @@ DOOR_RE = re.compile(
 HERO_RE = re.compile(r'class="lesson-hero lesson-hero--([a-z-]+)"')
 TITLE_RE = re.compile(r'^---\s*\ntitle:\s*(.+?)\s*\n', re.S)
 LABCARD_RE = re.compile(r'<a\s+href="([^"]+)"\s+class="lab-card"')
+DECKCARD_RE = re.compile(r'<a\s+href="([^"]+)"\s+class="deck-card"')
 LABBACK_RE = re.compile(r'<p class="lab-back">.*?</p>', re.S)
 ANCHOR_RE = re.compile(r'<a\s+([^>]*?)href="(https?://[^"]+)"([^>]*)>', re.I)
 
@@ -80,7 +83,8 @@ def on_files(files, config):
         title = TITLE_RE.search(source)
         lesson_url = f.url
         for door in doors:
-            door["href"] = _resolve(door["href"], lesson_url)
+            if door["href"]:
+                door["href"] = _resolve(door["href"], lesson_url)
 
         _lessons[lesson_url] = {
             "title": title.group(1) if title else "this lesson",
@@ -92,11 +96,14 @@ def on_files(files, config):
         }
 
         # The slide page the lesson points at, and every lab it lists.
-        slides = doors[SLIDES]["href"]
-        if slides.startswith("/"):
-            _registry[slides.strip("/") + "/"] = (lesson_url, SLIDES)
+        # Every deck the lesson lists, not only the one behind the door.
+        decks = {_resolve(h, lesson_url) for h in DECKCARD_RE.findall(source)}
+        if (doors[SLIDES]["href"] or "").startswith("/"):
+            decks.add(doors[SLIDES]["href"])
+        for deck in decks:
+            _registry[deck.strip("/") + "/"] = (lesson_url, SLIDES)
         labs = {_resolve(h, lesson_url) for h in LABCARD_RE.findall(source)}
-        if doors[LAB]["href"].startswith("/"):
+        if (doors[LAB]["href"] or "").startswith("/"):
             labs.add(doors[LAB]["href"])
         for lab in labs:
             _registry[lab.strip("/") + "/"] = (lesson_url, LAB)
@@ -114,6 +121,13 @@ def _render_dock(lesson, page_url, active):
     ]
     for i, door in enumerate(doors):
         href = door["href"]
+        if not href:
+            out.append(
+                f'<a class="dock-empty" aria-disabled="true">'
+                f'<span>{door["num"]}</span><strong>{door["label"]}</strong>'
+                f'<small>{door["note"]}</small></a>'
+            )
+            continue
         if i == LEARN:
             href = info["learn"]
         elif href.startswith("#"):
