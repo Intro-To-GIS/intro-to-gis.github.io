@@ -1050,7 +1050,9 @@ body:has(.topics-table) .md-sidebar--primary {
    column still reads as one edge.
    ============================================================ */
 
-:root { --measure: 68ch; }
+/* ch is the width of a zero, which is wider than the average lowercase
+   letter, so 68ch rendered as 81 characters a line. 62 lands at ~74. */
+:root { --measure: 62ch; }
 
 .md-typeset > p,
 .md-typeset > ul,
@@ -1253,12 +1255,17 @@ body:has(.home-portal) .md-sidebar {
   display: none;
 }
 
-body:has(.lesson-hero) .md-sidebar--primary {
+body:has(.lesson-hero) .md-sidebar--primary,
+/* Resources and About kept a left-hand nav holding a single link to the
+   page you are already on, and paid 240px of canvas for it. Every other
+   page on the site has already dropped it. */
+body:has(.page-head) .md-sidebar--primary {
   display: none;
 }
 
 .md-content:has(.learning-atlas),
 .md-content:has(.home-portal),
+.md-content:has(.page-head),
 .md-content:has(.lesson-hero) {
   min-width: 0;
   max-width: none;
@@ -2301,24 +2308,38 @@ body:has(.resource-dock--future) { --lesson-accent: var(--collection-future); --
   line-height: 1.65;
 }
 
-body:has(.lesson-hero) .md-typeset > h2 {
+/* The section marker: a short rule, air above, and display size. The
+   reference pages had been setting their sections at 1.35rem with no
+   rule, which is why they read as a different site. */
+body:has(.lesson-hero) .md-typeset > h2,
+body:has(.page-head) .md-typeset > h2 {
   position: relative;
   margin-top: 4rem;
   padding-top: 1.25rem;
   font-size: 1.9rem;
 }
 
-body:has(.lesson-hero) .md-typeset > h2::before {
+body:has(.lesson-hero) .md-typeset > h2::before,
+body:has(.page-head) .md-typeset > h2::before {
   content: "";
   position: absolute;
   top: -2px;
   left: 0;
   width: 4rem;
   height: 3px;
-  background: var(--lesson-accent);
+  background: var(--lesson-accent, var(--ink));
 }
 
+/* Away from a lesson there is no collection to borrow a colour from. */
+body:has(.page-head) .md-typeset > h2::before { background: var(--ink-3); }
+
+/* The opening idea of every Key concepts section. As a wrapper it sat
+   outside the measure cap and ran to 126 characters a line, half again
+   as long as the prose around it — on the one paragraph most likely to
+   be read first. The panel now holds the same column as body text. */
 .md-typeset .concept-lead {
+  box-sizing: content-box;
+  max-width: var(--measure);
   margin: 1.2rem 0 2.5rem;
   padding: clamp(1.3rem, 3vw, 2rem);
   border-left: 4px solid var(--lesson-accent);

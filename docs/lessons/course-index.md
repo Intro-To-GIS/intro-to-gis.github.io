@@ -1,6 +1,11 @@
+<div class="page-head" markdown>
+<div class="eyebrow">Reference</div>
+
 # Course Index
 
-This is the compact reference view of every topic, slide deck, lab, and reading. Nothing has been removed: use this page when you want the complete matrix rather than the visual browsing experience.
+<p class="lede">Every topic, slide deck, lab and reading in one matrix. Nothing has been removed: use this page when you want the complete table rather than the visual browsing experience.</p>
+
+</div>
 
 [Return to the visual Lessons atlas](index.md){ .md-button }
 

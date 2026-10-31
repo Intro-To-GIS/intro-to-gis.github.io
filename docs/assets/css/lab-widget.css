@@ -287,3 +287,16 @@
   .md-typeset .lab-rail li + li button { border-left: 0; border-top: 1px solid var(--line); }
   .md-typeset .lab-rail button.is-current::before { inset: 0 auto 0 0; width: 2px; height: auto; }
 }
+
+/* The lab's own column is wider than the reading measure, which suits
+   its tables and screenshots but left the prose running to 90
+   characters. Text takes the same column as everywhere else; figures
+   and tables keep the full width. */
+.md-typeset .lab-widget .panel > p,
+.md-typeset .lab-widget .panel > ol,
+.md-typeset .lab-widget .panel > ul,
+.md-typeset .lab-widget .gate-content > p,
+.md-typeset .lab-widget .gate-content > ol,
+.md-typeset .lab-widget .gate-content > ul {
+  max-width: var(--measure);
+}
