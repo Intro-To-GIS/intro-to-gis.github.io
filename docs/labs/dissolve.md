@@ -7,7 +7,7 @@
 
 </div>
 
-<p class="lab-back"><a href="../../lessons/#dissolve">&larr; Back to Lessons</a></p>
+<p class="lab-back"><a href="../../lessons/course-index/#dissolve">&larr; Back to Lessons</a></p>
 
 <div class="lab-toc"><b>On this page:</b> <a href="#student-handout">Student Handout</a> &middot; <a href="#data-acquisition">Data Acquisition</a> &middot; <a href="#project-instructions">Project Instructions</a> &middot; <a href="#result-reference">Result Reference</a></div>
 

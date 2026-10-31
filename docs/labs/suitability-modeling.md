@@ -7,7 +7,7 @@
 
 </div>
 
-<p class="lab-back"><a href="../../lessons/#suitability-modeling">&larr; Back to Lessons</a></p>
+<p class="lab-back"><a href="../../lessons/course-index/#suitability-modeling">&larr; Back to Lessons</a></p>
 
 <div class="lab-toc"><b>On this page:</b> <a href="#student-handout">Student Handout</a> · <a href="#data-acquisition">Data Acquisition</a> · <a href="#project-instructions">Project Instructions</a> · <a href="#result-reference">Result Reference</a></div>
 

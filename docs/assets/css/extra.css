@@ -2122,6 +2122,60 @@ body:has(.lesson-hero) .md-typeset > h1 {
   font-size: 0.5rem;
 }
 
+/* The dock travels onto the slide and lab pages a lesson owns, where there
+   is no hero to set the accent, so each copy carries its collection's. */
+.resource-dock--thinking      { --lesson-accent: var(--collection-thinking); }
+.resource-dock--workspace     { --lesson-accent: var(--collection-workspace); }
+.resource-dock--data          { --lesson-accent: var(--collection-data); }
+.resource-dock--tables        { --lesson-accent: var(--collection-tables); }
+.resource-dock--cartography   { --lesson-accent: var(--collection-cartography); }
+.resource-dock--relationships { --lesson-accent: var(--collection-relationships); }
+.resource-dock--vector        { --lesson-accent: var(--collection-vector); }
+.resource-dock--raster        { --lesson-accent: var(--collection-raster); }
+.resource-dock--future        { --lesson-accent: var(--collection-future); }
+
+.md-typeset .resource-dock--travelling {
+  margin: 0 0 3rem;
+}
+
+/* A lab page sets a narrower column for its own blocks. The dock aligns
+   with the title above it rather than spanning the full content width. */
+.md-typeset .resource-dock--lab {
+  max-width: 820px;
+  margin-left: 28px;
+}
+
+/* The door you are standing in. The accent rule reads along the top edge
+   so the four doors keep the same height and the same type. */
+.md-typeset .resource-dock a[aria-current="page"] {
+  position: relative;
+  background: color-mix(in srgb, var(--lesson-accent) 9%, transparent);
+}
+
+.md-typeset .resource-dock a[aria-current="page"]::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 2px;
+  background: var(--lesson-accent);
+}
+
+.md-typeset .resource-dock a[aria-current="page"] strong {
+  color: var(--lesson-accent);
+}
+
+/* A link that leaves the site opens in a new tab, and says so. Cards and
+   buttons already read as destinations, so only running text is marked. */
+.md-typeset a[target="_blank"]:not(.md-button):not([class])::after {
+  content: "\2197";
+  display: inline-block;
+  margin-left: 0.15em;
+  font-size: 0.78em;
+  line-height: 1;
+  vertical-align: 0.12em;
+  opacity: 0.55;
+}
+
 .md-typeset .lesson-prologue {
   display: grid;
   grid-template-columns: minmax(14rem, 0.75fr) minmax(18rem, 1.25fr);
