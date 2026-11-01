@@ -3484,3 +3484,47 @@ body:has(.page-head) .md-typeset > h2::before { background: var(--ink-3); }
     margin-left: 0;
   }
 }
+
+/* ------------------------------------------------------------------ *
+   A CARD THAT GOES SOMEWHERE SHOULD BE CLICKABLE
+   Several blocks on the site looked like cards but offered only a line
+   of text as the target — 3% of a collection card, 8% of the next-lesson
+   block. Where a block has exactly one destination, its single link now
+   covers it. The link stays one real link in the markup; only its hit
+   area grows, so nothing changes for a screen reader or the keyboard.
+ * ------------------------------------------------------------------ */
+
+.md-typeset .collection-card:has(.lesson-link-list li:only-child),
+.md-typeset .lesson-next { position: relative; }
+
+/* The course-index band had one destination and a button covering 3% of
+   it, so the band itself is the link now. Its button is a span: a link
+   inside a link is not valid and not navigable. */
+.md-typeset a.index-callout { text-decoration: none; }
+.md-typeset a.index-callout h2,
+.md-typeset a.index-callout p { color: inherit; }
+
+.md-typeset .collection-card:has(.lesson-link-list li:only-child) .lesson-link-list a::after,
+.md-typeset .lesson-next > a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+}
+
+/* The visible target keeps its own hover; the block picks one up too. */
+.md-typeset .collection-card:has(.lesson-link-list li:only-child):hover .lesson-link-list a,
+.md-typeset .lesson-next:hover > a strong {
+  color: var(--collection-ink, var(--lesson-accent-ink, var(--ink)));
+}
+
+/* A row in a multi-lesson card has its own destination, so the row is
+   the target rather than the card. The anchor now fills it. */
+.md-typeset .lesson-link-list a {
+  padding: 0.3rem 0;
+}
+
+@media (hover: hover) {
+  .md-typeset .collection-card:has(.lesson-link-list li:only-child):hover { cursor: pointer; }
+}

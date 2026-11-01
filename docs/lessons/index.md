@@ -250,13 +250,13 @@ hide:
 
 <p class="atlas-empty" data-lesson-empty hidden>No collection matches that search. Try a broader term or use the complete index.</p>
 
-<section class="index-callout">
+<a class="index-callout" href="course-index/">
   <div>
     <p class="atlas-kicker">Reference view</p>
     <h2>Want the entire course at a glance?</h2>
     <p>The original matrix remains available with every topic, slide deck, lab, and reading in one place.</p>
   </div>
-  <a class="atlas-button atlas-button--primary" href="course-index/">Open Course Index</a>
-</section>
+  <span class="atlas-button atlas-button--primary">Open Course Index</span>
+</a>
 
 </div>
