@@ -109,7 +109,10 @@ extra:
       link: "https://github.com/Intro-To-GIS/intro-to-gis.github.io"
       name: "GitHub repository"
 
-copyright: "Open course materials for learning GIS with ArcGIS Pro."
+copyright: >-
+  &copy; 2026 Shokran Rahiminezhad ·
+  <a href="/license/">CC BY-NC-SA 4.0</a> ·
+  Open course materials for learning GIS with ArcGIS Pro.
 
 nav:
   - Home: index.md
@@ -117,3 +120,4 @@ nav:
   - Course Index: lessons/course-index.md
   - Resources: resources.md
   - About: about.md
+  - License: license.md

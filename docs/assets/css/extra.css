@@ -2399,6 +2399,21 @@ body:has(.page-head) .md-typeset > h2::before { background: var(--ink-3); }
 .md-typeset .deliverable-card li { color: var(--night-muted); }
 .md-typeset .deliverable-card .atlas-button { margin-top: 0.6rem; }
 
+/* The card is near-black in both schemes, so a link inside it cannot take
+   the page's ink-blue accent: in light mode that put navy on near-black.
+   Found on the licence page, the first card here to carry a link. */
+.md-typeset .deliverable-card a:not(.atlas-button) {
+  color: var(--hero-paper);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--hero-paper) 45%, transparent);
+  text-underline-offset: 0.2em;
+  overflow-wrap: anywhere;
+}
+
+.md-typeset .deliverable-card a:not(.atlas-button):hover {
+  text-decoration-color: currentcolor;
+}
+
 .md-typeset .reading-card {
   display: flex;
   min-height: 9rem;
@@ -3578,4 +3593,139 @@ body:has(.page-head) .md-typeset > h2::before { background: var(--ink-3); }
 
 @media (hover: hover) {
   .md-typeset .collection-card:has(.lesson-link-list li:only-child):hover { cursor: pointer; }
+}
+
+/* ============================================================
+   LICENCE
+   A licence is a set of conditions, so it is set as conditions: the
+   three letter-codes Creative Commons itself uses, each one carrying
+   its term and the plain-words version of what it asks. The panel is
+   the only place on the site that borrows a mark from elsewhere, so it
+   stays in ink and takes no accent colour.
+   ============================================================ */
+
+.md-typeset .licence-badge {
+  display: grid;
+  gap: clamp(1.4rem, 3vw, 2.6rem);
+  margin: 0 0 3rem;
+  padding: clamp(1.4rem, 3.5vw, 2.2rem);
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: var(--wash);
+}
+
+@media screen and (min-width: 56em) {
+  .md-typeset .licence-badge {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+    align-items: start;
+  }
+}
+
+.md-typeset .licence-badge__mark {
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
+  margin: 0 0 0.9rem;
+  /* ink-3 measured 4.34:1 on the panel wash, just under AA at this size */
+  color: var(--ink-2);
+  font: 500 0.68rem/1 var(--md-code-font-family);
+  letter-spacing: 0.1em;
+}
+
+/* Each condition reads as a stamp rather than a word, which is the one
+   thing about a CC licence everybody already recognises. */
+.md-typeset .licence-badge__mark span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 1px solid currentcolor;
+  border-radius: 999px;
+  font-size: 0.56rem;
+  letter-spacing: 0.04em;
+}
+
+.md-typeset .licence-badge__head h3 {
+  margin: 0 0 0.8rem;
+  padding: 0;
+  border: 0;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(1.3rem, 2.6vw, 1.75rem);
+  line-height: 1.14;
+  letter-spacing: -0.01em;
+  text-transform: none;
+}
+
+.md-typeset .licence-badge__head p:last-child {
+  margin: 0;
+  max-width: 44ch;
+  color: var(--ink-2);
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+.md-typeset .licence-terms {
+  display: grid;
+  gap: 0.1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.md-typeset .licence-terms li {
+  display: grid;
+  grid-template-columns: 2.4rem minmax(0, 1fr);
+  gap: 0.1rem 0.9rem;
+  margin: 0;
+  padding: 0.85rem 0;
+  border-top: 1px solid var(--line);
+  color: var(--ink-2);
+  font-size: 0.78rem;
+  line-height: 1.58;
+}
+
+.md-typeset .licence-terms li:first-child { border-top: 0; padding-top: 0; }
+.md-typeset .licence-terms li:last-child { padding-bottom: 0; }
+
+.md-typeset .licence-code {
+  grid-row: span 2;
+  align-self: start;
+  padding: 0.28rem 0;
+  border-radius: 0.3rem;
+  background: var(--ink);
+  color: var(--paper);
+  font: 500 0.6rem/1 var(--md-code-font-family);
+  letter-spacing: 0.06em;
+  text-align: center;
+}
+
+.md-typeset .licence-terms strong {
+  color: var(--ink);
+  font-weight: 500;
+  font-size: 0.82rem;
+}
+
+
+
+/* A citation exists to be copied, so it is set like one: serif, hanging
+   indent, and nothing in the way of a drag across it. */
+.md-typeset .cite-block {
+  margin: 1.4rem 0 1.6rem;
+  padding: 1.1rem 1.3rem;
+  border-left: 2px solid var(--ink);
+  background: var(--wash);
+}
+
+.md-typeset .cite-block p {
+  margin: 0;
+  max-width: 68ch;
+  padding-left: 1.6rem;
+  text-indent: -1.6rem;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 0.92rem;
+  line-height: 1.6;
 }

@@ -32,6 +32,19 @@ DECKCARD_RE = re.compile(r'<a\s+href="([^"]+)"\s+class="deck-card"')
 LABBACK_RE = re.compile(r'<p class="lab-back">.*?</p>', re.S)
 ANCHOR_RE = re.compile(r'<a\s+([^>]*?)href="(https?://[^"]+)"([^>]*)>', re.I)
 
+# The two gate prompts are identical across all fourteen labs, so the reason
+# they are gated is explained once here rather than written out twenty-eight
+# times. The address lives on the licence page; this only points at it.
+GATE_RE = re.compile(
+    r'<p>Enter the access code your instructor gave you to view the '
+    r'(Project Instructions|Result Reference)\.</p>'
+)
+GATE_WHY = (
+    '<p class="gate-why">These two stages are live assessment material, which '
+    'is why they are not published openly. <a href="{href}">Why this is '
+    'locked, and how to ask for the code</a>.</p>'
+)
+
 LEARN, SLIDES, LAB = 0, 1, 2
 
 _registry = {}  # member page url -> (lesson key, index of the active door)
@@ -182,6 +195,10 @@ def on_page_content(html, page, config, files):
 
     lesson, active = _registry[url]
     dock = _render_dock(lesson, url, active)
+
+    if GATE_RE.search(html):
+        why = GATE_WHY.format(href=_relative("/license/#why-some-lab-material-needs-a-code", url))
+        html = GATE_RE.sub(lambda m: m.group(0) + why, html)
 
     # A lab page already has a way back to the lesson; the dock replaces it
     # and does the same job for all four doors.

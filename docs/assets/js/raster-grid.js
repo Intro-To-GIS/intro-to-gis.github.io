@@ -99,6 +99,20 @@
     });
     slider.addEventListener("change", update);
     update();
+
+    // isPointInFill answers nothing useful while the svg has no layout
+    // box, so a demo that starts hidden would come up empty. Draw it
+    // again the first time it is actually on screen.
+    if (!cellsG.childNodes.length && window.IntersectionObserver) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          update();
+          if (cellsG.childNodes.length) io.disconnect();
+        });
+      });
+      io.observe(demo);
+    }
   }
 
   function init() {

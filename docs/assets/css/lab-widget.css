@@ -300,3 +300,11 @@
 .md-typeset .lab-widget .gate-content > ul {
   max-width: var(--measure);
 }
+
+/* Why a stage is gated, written once by the build hook rather than
+   twenty-eight times in markdown. */
+.lab-widget .gate-why{
+  margin:0.5rem 0 0; max-width:60ch;
+  color:var(--ink-3); font-size:12px; line-height:1.6;
+}
+.lab-widget .gate-why a{color:var(--ink-2);}
