@@ -3373,6 +3373,24 @@ body:has(.page-head) .md-typeset > h2::before { background: var(--ink-3); }
   cursor: grab;
 }
 .md-typeset .ras-slider input[type="range"]:active { cursor: grabbing; }
+
+/* On a narrow screen the label and the readout ate the row and left the
+   track 77px wide on the lesson page and 17px in the home hero — a slider
+   nobody could drag. Below this width the track gets a row of its own,
+   and a taller one, because a thumb is dragged with a thumb.
+   Measured, not guessed: 390px viewport, lesson and home both. */
+@media screen and (max-width: 34em) {
+  .md-typeset .ras-slider {
+    grid-template-columns: 1fr auto;
+    gap: 0.15rem 0.75rem;
+  }
+
+  .md-typeset .ras-slider input[type="range"] {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    height: 2rem;
+  }
+}
 .md-typeset .ras-slider input[type="range"]::-webkit-slider-runnable-track {
   height: 3px;
   border-radius: 999px;
@@ -3728,4 +3746,106 @@ body:has(.page-head) .md-typeset > h2::before { background: var(--ink-3); }
   font-family: var(--serif);
   font-size: 0.92rem;
   line-height: 1.6;
+}
+
+/* ============================================================
+   HOME HERO DEMO
+   The hero used to carry a drawing of a place. It now carries one of
+   the lessons' own demos, chosen at random on arrival, so the first
+   thing on the site is something to touch rather than something to
+   look at. The whole panel is the link: asking a reader to find a
+   small line of text to click is asking them to work for it.
+   ============================================================ */
+
+.md-typeset .atlas-hero__map--demo {
+  display: flex;
+  align-items: center;
+  min-height: 0;
+  /* The hero was 580px tall with the illustration. A demo is taller than a
+     drawing, so the padding comes off to keep the call to action above the
+     fold on a laptop. */
+  padding: clamp(0.5rem, 1.4vw, 1.1rem) 0;
+}
+
+/* The illustration was absolutely positioned to fill the panel; a demo
+   sits in the flow instead. */
+.md-typeset .atlas-hero__map--demo svg {
+  position: static;
+  width: 100%;
+  height: auto;
+}
+
+.md-typeset .home-slot {
+  width: 100%;
+  max-width: 31rem;
+  margin-left: auto;
+}
+
+.md-typeset .home-slot[hidden] { display: none; }
+
+.md-typeset .home-slot__label {
+  margin: 0 0 0.7rem;
+  color: color-mix(in srgb, var(--lesson-accent) 72%, white);
+  font-family: var(--md-code-font-family);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.md-typeset .home-slot__card {
+  position: relative;
+  border-radius: 1rem;
+  transition: transform 200ms ease;
+}
+
+.md-typeset .home-slot__card:hover { transform: translateY(-2px); }
+
+.md-typeset .home-slot__foot {
+  margin: 0.8rem 0 0;
+  color: var(--night-muted);
+  font-size: 0.8rem;
+}
+
+.md-typeset .home-slot__foot a {
+  color: var(--hero-paper);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--hero-paper) 40%, transparent);
+  text-underline-offset: 0.2em;
+}
+
+/* The link covers the panel, so a click anywhere on it opens the lesson. */
+.md-typeset .home-slot__foot a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+}
+
+/* ...except on the controls, which have to stay controls. Without this
+   the raster slider would navigate instead of dragging. */
+.md-typeset .home-slot__card .spatial-demo__controls,
+.md-typeset .home-slot__card .ras-slider {
+  position: relative;
+  z-index: 2;
+}
+
+.md-typeset .home-slot__card:focus-within .home-slot__foot a {
+  text-decoration-color: currentcolor;
+}
+
+@media screen and (max-width: 59.9375em) {
+  /* Stacked, the demo column has no gutter of its own, so the label and
+     the footing ran under the hero's rounded edge and were clipped. Match
+     the copy column's padding so the demo lines up with the headline. */
+  .md-typeset .atlas-hero__map--demo {
+    order: -1;
+    min-height: 0;
+    padding: clamp(1.4rem, 4vw, 2rem) clamp(2rem, 5vw, 4.5rem) 0;
+  }
+
+  .md-typeset .home-slot {
+    max-width: none;
+    margin-left: 0;
+  }
 }
