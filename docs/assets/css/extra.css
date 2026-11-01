@@ -3317,23 +3317,84 @@ body:has(.page-head) .md-typeset > h2::before { background: var(--ink-3); }
 
 /* ------------------------------------------------------------------ *
    LESSON 06 DEMO — CELL SIZE SETS THE CEILING
-   One stream, three grids. The cells that would record it are
-   generated from the line itself, not drawn by hand.
+   A lake with a narrow inlet, and a slider for the cell size. The cells
+   are worked out at runtime by raster-grid.js, which asks the browser
+   whether each cell centre falls inside the shoreline, so the picture
+   cannot drift away from what the caption claims.
  * ------------------------------------------------------------------ */
 
-.ras-grid path { stroke: rgba(255, 255, 255, 0.09); stroke-width: 1; fill: none; }
-.ras-grid,
-.ras-cells { opacity: 0; transition: opacity 260ms ease; }
-.spatial-demo[data-mode="fine"] .ras-grid--fine,
-.spatial-demo[data-mode="fine"] .ras-cells--fine,
-.spatial-demo[data-mode="mid"] .ras-grid--mid,
-.spatial-demo[data-mode="mid"] .ras-cells--mid,
-.spatial-demo[data-mode="coarse"] .ras-grid--coarse,
-.spatial-demo[data-mode="coarse"] .ras-cells--coarse { opacity: 1; }
+.md-typeset .ras-slider {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.35rem 0.75rem 0.5rem;
+}
+.md-typeset .ras-slider label {
+  color: var(--night-muted);
+  font-family: var(--md-code-font-family);
+  font-size: 0.52rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.md-typeset .ras-slider output {
+  min-width: 3.4rem;
+  color: var(--hero-paper);
+  font-family: var(--md-code-font-family);
+  font-size: 0.72rem;
+  text-align: right;
+}
+.md-typeset .ras-slider output strong {
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+
+.md-typeset .ras-slider input[type="range"] {
+  width: 100%;
+  height: 1.4rem;
+  margin: 0;
+  appearance: none;
+  background: none;
+  cursor: grab;
+}
+.md-typeset .ras-slider input[type="range"]:active { cursor: grabbing; }
+.md-typeset .ras-slider input[type="range"]::-webkit-slider-runnable-track {
+  height: 3px;
+  border-radius: 999px;
+  background: var(--night-line);
+}
+.md-typeset .ras-slider input[type="range"]::-moz-range-track {
+  height: 3px;
+  border-radius: 999px;
+  background: var(--night-line);
+}
+.md-typeset .ras-slider input[type="range"]::-webkit-slider-thumb {
+  width: 1.05rem;
+  height: 1.05rem;
+  margin-top: -0.46rem;
+  appearance: none;
+  border: 0;
+  border-radius: 50%;
+  background: var(--lesson-accent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--lesson-accent) 22%, transparent);
+}
+.md-typeset .ras-slider input[type="range"]::-moz-range-thumb {
+  width: 1.05rem;
+  height: 1.05rem;
+  border: 0;
+  border-radius: 50%;
+  background: var(--lesson-accent);
+}
+.md-typeset .ras-slider input[type="range"]:focus-visible {
+  outline: 2px solid var(--lesson-accent);
+  outline-offset: 4px;
+}
+
+.ras-grid path { stroke: rgba(255, 255, 255, 0.085); stroke-width: 1; fill: none; }
 
 .ras-cells rect {
-  fill: color-mix(in srgb, var(--lesson-accent) 58%, transparent);
-  stroke: color-mix(in srgb, var(--lesson-accent) 80%, transparent);
+  fill: color-mix(in srgb, var(--lesson-accent) 56%, transparent);
+  stroke: color-mix(in srgb, var(--lesson-accent) 78%, transparent);
   stroke-width: 1;
 }
 
@@ -3349,17 +3410,7 @@ body:has(.page-head) .md-typeset > h2::before { background: var(--ink-3); }
   font: 400 14px var(--md-text-font-family);
 }
 .ras-key--cells { fill: var(--lesson-accent); }
-
-.ras-size__n {
-  fill: var(--hero-paper);
-  font: 500 26px var(--md-code-font-family);
-  text-anchor: end;
-  opacity: 0;
-  transition: opacity 240ms ease;
-}
-.spatial-demo[data-mode="fine"] .ras-s--fine,
-.spatial-demo[data-mode="mid"] .ras-s--mid,
-.spatial-demo[data-mode="coarse"] .ras-s--coarse { opacity: 1; }
+.ras-inlet-note { fill: var(--hero-paper); }
 
 /* ------------------------------------------------------------------ *
    LESSON 08 DEMO — COULD YOU PROVE WHAT YOU DID?
