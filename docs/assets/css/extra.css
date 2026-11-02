@@ -254,13 +254,38 @@ body {
   font-weight: 500;
 }
 
-.md-footer {
-  background: var(--ink);
+/* The footer is a dark band in BOTH schemes, so it takes --night, the
+   token for panels that stay dark, not --ink. --ink is the body text
+   colour: in dark mode it flips to near-white, which put white footer
+   text on a near-white band at 1.25:1 and made the whole footer,
+   copyright line included, invisible. */
+.md-footer,
+.md-footer-meta {
+  background: var(--night);
 }
 
-.md-footer-meta {
-  background: var(--ink);
+/* Footer text is white in both schemes; stated outright so it cannot
+   drift with the scheme tokens again. */
+.md-footer,
+.md-footer a {
+  color: #ffffff;
 }
+
+.md-copyright,
+.md-copyright__highlight {
+  color: color-mix(in srgb, #ffffff 82%, transparent);
+}
+
+.md-copyright a,
+.md-copyright__highlight a {
+  color: #ffffff;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, #ffffff 45%, transparent);
+  text-underline-offset: 0.2em;
+}
+
+.md-copyright a:hover,
+.md-copyright__highlight a:hover { text-decoration-color: currentcolor; }
 
 /* ---------- Hero ---------- */
 
