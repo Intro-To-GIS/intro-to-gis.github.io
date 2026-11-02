@@ -45,7 +45,7 @@
      separate hues, ordered warm to cool so the sequence still reads
      local to global without any two bands looking alike. */
   --scale-nyc:       #9c4a24;
-  --scale-urban:     #a07214;
+  --scale-urban:     #956800;   /* was #a07214: 4.13:1 on paper, under AA */
   --scale-regional:  #3f6b30;
   --scale-national:  #10646e;
   --scale-world:     #3a4a91;
@@ -477,7 +477,10 @@ body {
   font-weight: 500;
   letter-spacing: 0.13em;
   text-transform: uppercase;
-  color: var(--ink-3);
+  /* ink-3 on the panel wash measures 4.34:1 light and 4.42:1 dark at
+     this size — under AA. Same pairing that failed on the licence mark.
+     Applies to every admonition title and details summary on the site. */
+  color: var(--ink-2);
   margin: 0;
   padding: 0.7rem 1rem 0.1rem 1rem;
 }
@@ -3873,4 +3876,22 @@ body:has(.page-head) .md-typeset > h2::before { background: var(--ink-3); }
     max-width: none;
     margin-left: 0;
   }
+}
+
+/* ============================================================
+   CODE KEYWORDS IN LIGHT MODE
+   Material's default keyword and namespace colours measured 4.45:1 and
+   4.46:1 on the code wash — a hair under AA, on the two lessons that
+   carry Python and SQL. Darkened at constant hue until each clears 4.6.
+   Dark mode already passes (5.10 and 5.28) and is left alone.
+   ============================================================ */
+body[data-md-color-scheme="default"] .highlight .k,
+body[data-md-color-scheme="default"] .highlight .kn,
+body[data-md-color-scheme="default"] .highlight .kd,
+body[data-md-color-scheme="default"] .highlight .kt {
+  color: #3d6bc3;
+}
+
+body[data-md-color-scheme="default"] .highlight .nn {
+  color: #a543b6;
 }

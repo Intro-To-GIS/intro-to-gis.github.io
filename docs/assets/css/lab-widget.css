@@ -219,7 +219,10 @@
   color: var(--lesson-accent-ink, var(--ink));
 }
 
-.md-typeset .lab-rail button.is-locked .lab-rail__label { color: var(--ink-3); }
+/* ink-3 on the rail wash measures 4.34:1 light and 4.42:1 dark — under
+   AA. A locked stage still reads as locked: the padlock says so, and the
+   label does not have to be faint to prove it. */
+.md-typeset .lab-rail button.is-locked .lab-rail__label { color: var(--ink-2); }
 
 .md-typeset .lab-rail__lock {
   width: 0.56rem;
